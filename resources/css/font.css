@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'opensans-bold';
+  src: url('../fonts/opensans-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opensans-regular';
+  src: url('../fonts/opensans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'opensans-semibold';
+  src: url('../fonts/opensans-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'square';
+  src: url('../fonts/square_721_extended_bt-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'pingfang_bold';
+  src: url('../fonts/pingfang_bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'pingfang_regular';
+  src: url('../fonts/pingfang_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
