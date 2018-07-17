@@ -1,0 +1,56 @@
+
+
+/* 船舶状态、参数 < 1600px */
+
+@media screen and (max-width: 1600px) {
+    .nt_ind_right {
+        width: 100%;
+        float: left;
+        height: auto;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .nt_indrigRT {
+        height: 28px;
+        line-height: 28px;
+        color: #6bb72d;
+        background: #1b1c1d;
+        font-size: 14px;
+        padding-left: 15px;
+    }
+    .nt_indrigRT2 {
+        height: 28px;
+        line-height: 28px;
+        margin-top: 20px;
+        font-size: 14px;
+        background: #1b1c1d;
+        padding-left: 15px;
+    }
+    .nt_indlist {
+        overflow: hidden;
+        clear: both;
+        padding: 30px 10px 10px;
+        background: rgba(0, 0, 0, 0.4);
+    }
+    .nt_indlist ul li {
+        height: 25px;
+        line-height: 25px;
+        font-size: 14px;
+    }
+    .nt_ind_right ul li:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .nt_indlist ul li .nt_indlistL {
+        font-family: square;
+        float: left;
+        width: 50%;
+    }
+    .nt_indlist ul li .nt_indlistR {
+        font-family: square;
+        float: right;
+        width: 40%;
+        text-align: right;
+    }
+}

@@ -22,7 +22,7 @@
     height: 300px;
     overflow: hidden;
     clear: both;
-    background: url(../../../images/bg_black_tm.png) repeat;
+    background: url(../../../../images/bg_black_tm.png) repeat;
     padding: 6px 0;
     overflow-y: auto;
 }
@@ -45,10 +45,9 @@
 
 .nt_indrigtop .nt_indrigtopM .nt_indrigtopML {
     float: left;
-    _display: inline;
 }
 
-.nt_indrigtop .nt_indrigtopM li {
+.nt_indrigtop li {
     display: inline-block;
     width: 100%;
     line-height: 1;
@@ -57,16 +56,15 @@
     box-sizing: border-box;
 }
 
-.nt_indrigtop .nt_indrigtopM .nt_indrigtopMLl {
+.nt_indrigtop .nt_indrigtopMLl {
     float: left;
     width: 210px;
 }
 
-.nt_indrigtop .nt_indrigtopM .nt_indrigtopMLr {
+.nt_indrigtop .nt_indrigtopMLr {
     float: right;
     width: 100px;
     font-size: 16px;
-    color: #118d44;
     text-align: right;
 }
 
@@ -104,7 +102,7 @@
     height: 450px;
     overflow: hidden;
     clear: both;
-    background: url(../../../images/bg_black_tm.png) repeat;
+    background: url(../../../../images/bg_black_tm.png) repeat;
     padding: 6px 0;
     overflow-y: auto;
 }
