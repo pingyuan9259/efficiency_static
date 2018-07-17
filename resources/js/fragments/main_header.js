@@ -45,18 +45,18 @@ $(function(){
 	mainHeader.init();
 	
 	//每5秒刷新    获取最新更新时间 
-	setInterval(function(){
-		$.ajax({
-	        type: "post",
-	        url:server_url+"/shipdrivinginfo",
-	        dataType: "json",
-	        success: function(data){
-	        	if(data.state){
-	        		$("#updateTime").text(tool.getLocalTime(data.result.utc));
-	        	}
-	        }
-	    });
-	},5000);
+	// setInterval(function(){
+	// 	$.ajax({
+	//         type: "post",
+	//         url:server_url+"/shipdrivinginfo",
+	//         dataType: "json",
+	//         success: function(data){
+	//         	if(data.state){
+	//         		$("#updateTime").text(tool.getLocalTime(data.result.utc));
+	//         	}
+	//         }
+	//     });
+	// },5000);
 });
 
 var mainHeader = {

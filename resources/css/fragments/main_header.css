@@ -1,0 +1,175 @@
+.nt_top {
+    display: flex;
+    width: 100%;
+    min-width: 1080px;
+    height: 76px;
+    position: relative;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* logo */
+
+.nt_top .nt_top_logo {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding-left: 20px;
+    padding-right: 50px;
+    transition: all .2s linear;
+    opacity: 0.8;
+}
+
+.nt_top .nt_top_logo:hover {
+    opacity: 1;
+}
+
+.nt_top .nt_top_logo img {
+    width: 170px;
+}
+
+.nt_top .nt_top_logo p {
+    font-size: 12px;
+    white-space: nowrap;
+    margin-left: 3px;
+}
+
+/* nav */
+
+.nt_top .nt_top_nav {
+    display: flex;
+    height: 90px;
+    overflow: hidden;
+}
+
+.nt_top .nt_top_nav {
+    display: flex;
+}
+
+.nt_top .nt_top_nav li .nt_top_nav_font {
+    display: inline-block;
+    padding: 0 20px;
+    margin: 0 5px;
+    height: 78px;
+    line-height: 68px;
+    border-top: 12px solid transparent;
+    transition: all .2s linear;
+    color: #ccc;
+}
+
+.nt_top .nt_top_nav li .nt_top_nav_font:hover {
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+.nt_top .nt_top_nav li .nt_top_nav_font.nt_top_nav_on {
+    border-color: rgba(0, 0, 0, 0.4);
+}
+
+/* option */
+
+.nt_top .nt_top_right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    height: 90px;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.nt_top .nt_top_right a {
+    line-height: 30px;
+    margin: 0 10px;
+    opacity: 0.8;
+    transition: all .2s linear;
+}
+
+.nt_top .nt_top_right a:hover {
+    opacity: 1;
+}
+
+.nt_top .nt_top_right img {
+    width: 30px;
+}
+
+/* 弹窗 */
+
+.nx_diatc {
+    display: none;
+    width: 1019px;
+    height: 763px;
+    background: #292929;
+    border: 1px solid #414141;
+    color: #ccc;
+}
+
+.nx_diatcT {
+    height: 30px;
+    line-height: 30px;
+    background: #000;
+    padding: 0 17px;
+}
+
+.nx_diatcT .nx_diatcL {
+    float: left;
+}
+
+.nx_diatcT .nx_diatcR {
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.nx_diatc .nx_diatcTit {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 17px;
+    font-size: 14px;
+}
+
+.nx_diatc .nx_diatcqx {
+    margin: 0 17px;
+}
+
+.nx_diatc .nx_diatcbot {
+    height: auto;
+    overflow: hidden;
+    clear: both;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain {
+    width: 300px;
+    float: left;
+    margin: 0 100px 0 25px;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain .nx_diatcbotLtit {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #535456;
+    color: #fff;
+    font-size: 14px;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain ul {
+    height: auto;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain ul li {
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain ul li .nx_diatcbotL {
+    float: left;
+    width: 140px;
+}
+
+.nx_diatc .nx_diatcbot .nx_diatcbotmain ul li .nx_diatcbotR {
+    float: left;
+    margin-left: 20px;
+}

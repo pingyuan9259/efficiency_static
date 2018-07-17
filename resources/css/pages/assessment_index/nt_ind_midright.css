@@ -1,0 +1,171 @@
+/* nt_ind_midright */
+
+.nt_ind_midright {
+    width: 210px;
+    margin-left: 20px;
+    float: left;
+}
+
+/* 航向、舵角、风速、时间 */
+
+.nt_indrightT {
+    display: inline-block;
+    width: 220px;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+}
+
+.nt_indrightT ul {
+    width: 225px
+}
+
+.nt_indrightT ul li {
+    float: left;
+    width: 90px;
+    height: 135px;
+    padding: 5px;
+    margin: 0 10px 10px 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.nt_indrightT ul li p {
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.nt_indrightT ul li span {
+    color: #6bb72d;
+    font-size: 16px;
+    text-align: right;
+    display: block;
+}
+
+.nt_indrightT ul li img {
+    display: block;
+    margin: 5px auto;
+    width: 90%;
+}
+
+.nt_indrightT ul li .nt_indrightT_znz {
+    width: 60%;
+}
+
+/* 车钟位 */
+
+.nt_indrightR {
+    margin-top: 10px;
+    padding: 10px;
+    width: 210px;
+    box-sizing: border-box;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.nt_indrightR div:last-child {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 15px 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.nt_indrightR div:last-child::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 28%;
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    transform: rotate(-106deg) skewY(-61deg);
+}
+
+.nt_indrightR div:last-child::after {
+    content: '';
+    position: absolute;
+    right: -23px;
+    top: 28%;
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    transform: rotate(106deg) skewY(61deg);
+}
+
+.nt_indrightR .nt_indrightRm {
+    display: block;
+    background-color: #fd8700;
+    color: #fff;
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    width: 100%;
+}
+
+/* 对水速度、对地速度 */
+
+.nt_indrightB {
+    width: 210px;
+    display: inline-block;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px 0;
+    margin-top: 20px;
+}
+
+.nt_indrightB li {
+    position: relative;
+    display: inline-block;
+    height: 154px;
+    width: 154px;
+    margin-bottom: 30px;
+}
+
+.nt_indrightB li:last-child {
+    margin: 0;
+}
+
+.nt_indrightB li .nt_indrightB_item_bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.nt_indrightB li .nt_indrightB_item_dot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 101;
+}
+
+.nt_indrightB li .nt_indrightB_item_tit {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    font-size: 14px;
+}
+
+.nt_indrightB li .nt_indrightB_item_val {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nt_indrightB li .nt_indrightB_item_unit {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}

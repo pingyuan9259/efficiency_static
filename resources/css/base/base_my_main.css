@@ -1,5 +1,5 @@
 body,ul,ol,dl,dt,dd,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,th,td,img,div,input,textarea{margin:0; padding:0;}
-body{ background:#fff; color:#666; font-size:12px; font-family:pingfang_regular;}
+body{ background:#fff; color:#666; font-size:12px; font-family: square pingfang_bold;}
 *html{background-image:url(about:blank);background-attachment:fixed;}
 input,textarea,select{font:12px Microsoft Yahei; }
 input[type="submit"],
