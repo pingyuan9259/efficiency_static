@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SOMS</title>
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../resources/css/mainnx_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/base/base_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/pfblack_my.css" />
+    <link rel="stylesheet" href="../../resources/css/font.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
+    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_indleft.css" />
+    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_indmid.css" />
+    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_ind_midright.css" />
+    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_ind_right.css" />
+    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/justify.css" />
+</head>
+
+<body>
+
+<!-- main_header start -->
+<section class="main_header">
+
+    <div class="nt_top">
+        <a href="" class="nt_top_logo">
+            <div class="content">
+                <img src="../../resources/images/logo.png" />
+                <p class="updateTime">
+                    最新更新时间：
+                    <span>2018-5-7 9:19:42</span>
+                </p>
+            </div>
+        </a>
+
+        <ul class="nt_top_nav">
+            <li>
+                <a class="nt_top_nav_font nt_top_nav_on" href="">efficiency optimization</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">efficiency optimization</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+        </ul>
+
+        <div class="nt_top_right">
+            <a href="">
+                <img src="../../resources/icons/sun_48X48.ico" />
+            </a>
+
+            <a href="">
+                <img src="../../resources/icons/uk_48X48.ico" />
+            </a>
+
+            <a href="javacript:void(0);" id="setting">
+                <img src="../../resources/images/icon_set.png" /> 设置
+            </a>
+
+            <a href="javacript:void(0);" id="login">
+                <img src="../../resources/images/login.png" />
+            </a>
+
+            <a href="javacript:void(0);" id="exit">
+                <img src="../../resources/images/icon_exit.png" />
+            </a>
+        </div>
+    </div>
+
+
+    <!--参数配置弹窗 start-->
+    <div class="nx_diatc" id="setting_dialog" style="height: 300px;">
+        <div class="nx_diatcT">
+            <span class="nx_diatcL">参数配置</span>
+            <span class="nx_diatcR">
+                <img src="../../resources/images/icon_close.png" onclick="tool.closeDialog()" />
+            </span>
+        </div>
+        <div class="nt_tab">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>CO2排放数据采样周期</th>
+                    <td>
+                        <select id="co2Value" class="nt_cstopdate_sel">
+                            <option value="12">12小时</option>
+                            <option value="24">24小时</option>
+                            <option value="72">3天</option>
+                            <option value="168">7天</option>
+                            <option value="360">15天</option>
+                            <option value="720">30天</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>设备能效默认指标配置</th>
+                    <td>
+                        <select id="options" class="nt_cstopdate_sel" multiple="multiple" style="height: 20px;width: 200px;">
+                            <optgroup label="关键指标">
+                                <option value="shipefficiencyoptimization_hullFuelEfficiency:assessment.index.hullfuelefficiency_KG/nm" selected="selected">船舶燃油效率</option>
+                                <option value="hostpropulsion_meFuelEfficiency:assessment.index.mefuelefficiency_g/kwh">主机燃油效率</option>
+                                <option value="shipvoyagestate_totalPower:assessment.parameter.totalpower_KW" >船舶总功率</option>
+                            </optgroup>		
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>载货量</th>
+                    <td>
+                        <input id="carge" type="text" class="nt_cstopdate_put username" value="" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <span>
+                    <input type="button" class="nt_cstopdate_put saveSysparam" value="保存" />
+                </span>
+            </div>
+        </div>
+    </div><!--参数配置弹窗 end-->
+
+    <!--弹出登录弹窗 start-->
+    <div class="nx_diatc" id="login_dialog" style="height: 220px;width: 600px;">
+        <div class="nx_diatcT">
+            <span class="nx_diatcL">登录系统</span>
+            <span class="nx_diatcR">
+                <img src="../../resources/images/icon_close.png" onclick="tool.closeDialog()" />
+            </span>
+        </div>
+        <div class="nt_tab">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input type="text" class="nt_cstopdate_put username" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input type="password" class="nt_cstopdate_put password" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <span>
+                    <input type="button" class="nt_cstopdate_put loginBtn" value="登录" />
+                </span>
+            </div>
+
+        </div>
+    </div><!--弹出登录弹窗 end-->
+
+</section><!-- main_header end -->
+
+<div class="container">
+    <!-- sub_header start -->
+    <section class="sub_header">
+        <ul>
+            <li><a class="active">概览</a></li>
+            <li><a href="">转速优化</a></li>
+            <li><a href="">纵倾优化</a></li>
+            <li><a href="">滑失率分析</a></li>
+        </ul>
+    </section><!-- sub_header end -->
+
+    <!-- nt_indleft start -->
+    <section class="nt_indleft">
+        <div class="nt_indleft_title">船舶燃油效率</div>
+        <ul class="nt_indLeft_main" style="height: 132px">
+            <li>
+                <div class="nt_indLeft_main_div" id="shipFuelEfficiency">
+                    <p>0</p>
+                    <span>KG/nm</span>
+                    <img src="../../resources/images/icon_redjt.png" />
+                    <div class="nt_indLeft_main_info">船舶燃油效率</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">船舶燃油效率</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="meFuelEfficiency">
+                    <p>0</p>
+                    <span>g/kwh</span>
+                    <img src="../../resources/images/icon_greenjt.png" />
+                    <div class="nt_indLeft_main_info">主机燃油效率</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">船舶燃油效率</div>
+            </li>
+        </ul>
+        
+        <div class="nt_indleft_title">船舶燃油效率</div>
+        <ul class="nt_indLeft_main" style="height: 425px">
+            <li>
+                <div class="nt_indLeft_main_div" id="totalPower">
+                    <p>0</p>
+                    <span>KW</span>
+                    <img src="../../resources/images/icon_redjt.png" />
+                    <div class="nt_indLeft_main_info">总体船舶功率</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">总体船舶功率</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="fuelConsumptionPerTonNm">
+                    <p>0</p>
+                    <span>kg/ton*nm</span>
+                    <img style="display:none;" src="../../resources/images/icon_redjt.png" />
+                    <div class="nt_indLeft_main_info" style="margin-top: 37px;">单位运输功燃油消耗</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">单位运输功燃油消耗</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="co2EmissionPerTonNm">
+                    <p>0</p>
+                    <span>kg/ton*nm</span>
+                    <img style="display:none;" src="../../resources/images/icon_greenjt.png" />
+                    <div class="nt_indLeft_main_info" style="margin-top: 37px;">单位运输功CO<sub>2</sub>排放</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">单位运输功CO2排放</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="co2EmissionPerNm">
+                    <p>0</p>
+                    <span>kg/nm</span>
+                    <img style="display:none;" src="../../resources/images/icon_greenjt.png" />
+                    <div class="nt_indLeft_main_info" style="margin-top: 37px;">单位距离CO<sub>2</sub>排放</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">单位距离CO2排放</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="co2EmissionPerTon">
+                    <p>0</p>
+                    <span>kg/ton</span>
+                    <img src="../../resources/images/icon_redjt.png" />
+                    <div class="nt_indLeft_main_info">单位运输量CO<sub>2</sub>排放</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">单位运输量CO2排放</div>
+            </li>
+            <li>
+                <div class="nt_indLeft_main_div" id="co2EmissionPerTon">
+                    <p>0</p>
+                    <span>kg/ton</span>
+                    <img style="display:none;" src="../../resources/images/icon_redjt.png" />
+                    <div class="nt_indLeft_main_info" style="margin-top: 37px;">单位运输量CO<sub>2</sub>排放</div>
+                </div>
+                <div class="dn nt_indLeft_main_dndiv">单位运输量CO2排放</div>
+            </li>
+        </ul>
+
+        <!-- nt_ind_eca start -->
+        <div class="nt_ind_eca">
+            <div class="nt_ind_eca_tit">ECA & Distribution of  energy efficiency</div>
+            <div class="nt_ind_eca_con">
+                <p>Nm to ECA : </p>
+                <p>Time to ECA : </p>
+                <div class="nt_ind_eca_val">
+                    <span>45nm</span>
+                    <span>16:15:22</span>
+                </div>
+                <a href="" class="nt_ind_eca_btn">紧急情况上报</a>
+            </div>
+        </div><!-- nt_ind_eca end -->
+    </section><!-- nt_indleft end -->
+
+    <!-- nt_indmid start -->
+	<section class="nt_indmid">
+        <!-- nt_indbz start -->
+        <div class="nt_indbz">
+            <li>
+                <img src="../../resources/images/icon_tjb.png" class="nt_indMidtu" />
+                <div class="nt_indbz01" id="slipColor">
+                    <span class="nt_indMidtit">滑失率:</span>
+                    <p style="width: 172px;">
+                        <span class="nt_indMidnum" id="curSlip" style="float: left;margin-left: 90px;">--</span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../../resources/images/icon_tjb.png" class="nt_indMidtu" />
+                <div class="nt_indbz02" id="trimColor">
+                    <span class="nt_indMidtit">纵倾值:</span>
+                    <p style="width: 172px;">
+                        <span class="nt_indMidnum" id="curTrim" style="float: left;margin-left: 90px;">--</span>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img src="../../resources/images/icon_tjb.png" class="nt_indMidtu" />
+                <div class="nt_indbz03" id="rotationColor">
+                    <span class="nt_indMidtit">主机转速:</span>
+                    <p style="width: 172px;">
+                        <span id="curRotation">--</span>
+                        <img id="rotationImg" src="../../resources/images/icon_jt.png" class="nt_indMidjt" />
+                        <span class="nt_indMidnum" id="lastRotation" >--</span>
+                    </p>
+                </div>
+            </li>
+        </div>
+
+        <!-- nt_indbiao start -->
+        <div class="nt_indbiao">
+            <img src="../../resources/images/bg_biao.png" class="nt_indbiao_bg">
+            <!-- 船舶 -->
+            <div class="nt_indb_chuan">
+                <img id="ship-image" src="../../resources/images/img_chuan.png" />
+            </div>
+            <!-- rotation -->
+            <div class="nt_indb_zhizhenleft">
+                <img id="rotation-image" src="../../resources/images/bg_zhizhengleft.png" />
+            </div>
+            <!-- trim -->
+            <div class="nt_indb_zhizhenmid">
+                <img id="trim-image" src="../../resources/images/bg_zhizhengmid.png" />
+            </div>
+            <!-- slip -->
+            <div class="nt_indb_zhizhenrig">
+                <img id="slip-image" src="../../resources/images/bg_zhizhengrig.png" />
+            </div>
+        </div><!-- nt_indbiao start -->
+    </section><!-- nt_indmid end -->
+
+    <!-- nt_ind_midright start -->
+    <section class="nt_ind_midright">
+        <!-- 航向、舵角、风速、时间 start -->
+        <div class="nt_indrightT">
+            <ul>
+                <li>
+                    <p>船艏向</p>
+                    <span id="hdt">--°</span>
+                    <div style="height:90px;width:90px;background:url(/resources/images/icon_img2.png) no-repeat -3px center;">
+                        <div id="hdtGauge" style="height:90px;width:90px;"></div>
+                    </div>
+                </li>
+                <li>
+                    <p>舵角</p>
+                    <span id="rudderangle">--°</span>
+                    <div style="height:94px;width:94px;background:url(/resources/images/icon_img1.png) no-repeat -3px center;">
+                        <div id="rudderangleGauge" style="height:94px;width:94px;"></div>
+                    </div>
+                </li>
+                <li>
+                    <div>风速&amp;风向</div>
+                    <div style="margin: 5px auto;height:66px;width:66px;background:url(/resources/images/icon_zhinanzheng.png) no-repeat -1px center;">
+                        <div id="windDirationGauge" style="height:70px;width:70px;"></div>
+                    </div>
+                    <div class="tc" id="windDiration">--</div>
+                    <div class="tc" id="windSpeed">--</div>
+                </li>
+                <li style="position: relative; padding: 30px 10px; box-sizing: border-box; width: 100px; height: 145px;">
+                    <img src="../../resources/images/sheep_deep.png">
+                    <p style="position: absolute; top: 45%; left: 30%;">200m</p>
+                </li>
+            </ul>
+        </div><!-- 航向、舵角、风速、时间 end -->
+    
+        <!-- 车钟位 start -->
+        <div class="nt_indrightR">
+            <div class="nt_indrightRtit">车钟位</div>
+            <div>
+                <span class="nt_indrightRm">车钟位</span>
+            </div>
+        </div><!-- 车钟位 end -->
+    
+        <!-- 回转率、主机转速、对水速度、对地速度 start -->
+        <div class="nt_indrightB">
+            <li>
+                <p class="nt_indrightB_item_tit">对水速度</p>
+                <p class="nt_indrightB_item_val">0</p>
+                <p class="nt_indrightB_item_unit">Kn</p>
+                <img src="../../resources/images/dash_borad_bg_1.png" class="nt_indrightB_item_bg">
+                <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="nt_indrightB_item_dot">
+            </li>
+            <li>
+                <p class="nt_indrightB_item_tit">对地速度</p>
+                <p class="nt_indrightB_item_val">0</p>
+                <p class="nt_indrightB_item_unit">Kn</p>
+                <img src="../../resources/images/dash_borad_bg_1.png" class="nt_indrightB_item_bg">
+                <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="nt_indrightB_item_dot">
+            </li>
+        </div><!-- 回转率、主机转速、对水速度、对地速度 end -->
+    </section><!-- nt_ind_midright end -->
+    
+    <!-- 船舶状态、参数 start -->
+    <section class="nt_ind_right">
+        <!-- 船舶状态 start -->
+        <div class="nt_ind_right_group">
+            <div class="nt_indrigRT">船舶状态</div>
+            <div class="nt_indrigtop">
+                <ul class="nt_indrigtopT">
+                    <li>目的港口:<span style="float: right;" id="destination">--h</span></li>
+                    <li>预计达到时间:<span style="float: right;" id="timeOfArrival">--h</span></li>
+                    <li>对地速度:<span style="float: right;" id="sog1">--kn</span></li>
+                </ul>
+    
+                <div class="nt_indrigload">
+                    <i></i> <span id="condition">At loading/unloading</span>
+                </div>
+    
+                <ul class="nt_indrigtopT">
+                    <li>
+                        <span class="nt_indrigtopMLl">航行时间:</span>
+                        <span class="nt_indrigtopMLr" id="voyageTime">--h</span>
+                    </li>
+                    <li>
+                        <span class="nt_indrigtopMLl">航行距离(对地):</span>
+                        <span class="nt_indrigtopMLr" id="vdistOverGround">--nm</span>
+                    </li>
+                    <li>
+                        <span class="nt_indrigtopMLl">航行距离(对水):</span>
+                        <span class="nt_indrigtopMLr" id="vdistInWater">--nm</span>
+                    </li>
+                    <li>
+                        <span class="nt_indrigtopMLl">燃油消耗量:</span>
+                        <span class="nt_indrigtopMLr" id="tfuelOilConsumption">--ton</span>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- 船舶状态 end -->
+
+        <!-- 参数 start -->
+        <div class="nt_ind_right_group">
+            <div class="nt_indrigRT2">参数</div>
+            <div class="nt_indlist">
+                <ul>
+                    <li>
+                        <span class="nt_indlistL">主机燃油流量:</span>
+                        <span class="nt_indlistR" id="meFoFlow">-- kg/h</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">发电机燃油流量:</span>
+                        <span class="nt_indlistR" id="dgfuelflow">-- kg/h</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">锅炉燃油流量:</span>
+                        <span class="nt_indlistR" id="foTotalFlow">-- kg/h</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">主机功率:</span>
+                        <span class="nt_indlistR" id="mePower">-- Kw</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">NO.1发电机功率:</span>
+                        <span class="nt_indlistR" id="dgpower6">-- Kw</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">NO.2发电机功率:</span>
+                        <span class="nt_indlistR" id="dgpower7">-- Kw</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">NO.3发电机功率:</span>
+                        <span class="nt_indlistR" id="dgpower8">-- Kw</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">艏吃水:</span>
+                        <span class="nt_indlistR" id="fwdDraught">-- m</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">艉吃水:</span>
+                        <span class="nt_indlistR" id="aftDraught">-- m</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">左吃水:</span>
+                        <span class="nt_indlistR" id="portDraught">-- m</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">右吃水:</span>
+                        <span class="nt_indlistR" id="stbdDraught">-- m</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">水深:</span>
+                        <span class="nt_indlistR" id="waterDepth">-- m</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">横倾角:</span>
+                        <span class="nt_indlistR" id="heelAngle">--°</span>
+                    </li>
+                    <li>
+                        <span class="nt_indlistL">纵倾角:</span>
+                        <span class="nt_indlistR" id="trimAngle">--°</span>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- 参数 end -->
+    </section><!-- 船舶状态、参数 end -->
+</div>
+
+<script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jQueryRotate.js"></script>
+<script type="text/javascript" src="../../resources/js/multiSelect/jquery.multiSelect.js"></script>
+<script type="text/javascript" src="../../resources/js/easydialog.js"></script>
+<script type="text/javascript" src="../../resources/js/tool.js"></script>
+<script type="text/javascript" src="../../resources/js/sysproperties.js"></script>
+<script type="text/javascript" src="../../resources/js/fragments/main_header.js"></script>
+<script type="text/javascript" src="../../resources/js/pages/efficiency/overview.js"></script>
+
+</body>
+</html>

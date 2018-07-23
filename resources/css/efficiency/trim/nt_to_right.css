@@ -1,0 +1,93 @@
+.nt_to_right {
+    width: calc(45% - 20px);
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    float: right;
+}
+
+.nt_to_right .chart_container {
+    width: 49%;
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.nt_to_right .chart_container .chart_title {
+    background: rgba(0, 0, 0, 0.25);
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+}
+
+.nt_to_right .chart_container .chart_body {
+    width: 100%;
+    height: 240px;
+}
+
+/* 两个仪表盘 */
+.nt_to_right_bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 30px 0;
+}
+
+.nt_to_right_bottom li {
+    position: relative;
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+}
+
+.nt_to_right_bottom li:last-child {
+    margin: 0;
+}
+
+.nt_to_right_bottom li .nt_to_right_bottom_bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+.nt_to_right_bottom li .nt_to_right_bottom_dot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+}
+
+.nt_to_right_bottom li .nt_to_right_bottom_tit {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    font-size: 14px;
+}
+
+.nt_to_right_bottom li .nt_to_right_bottom_val {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nt_to_right_bottom li .nt_to_right_bottom_unit {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}

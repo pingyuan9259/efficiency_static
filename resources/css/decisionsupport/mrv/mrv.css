@@ -1,0 +1,142 @@
+.functional_selection{
+    width: 100%;
+    padding: 12px 20px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    float: left;
+}
+.mrv_years,.years,.month_quarter,.voyage{
+    width: 15%;
+    height: 28px;
+    line-height: 28px;
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    text-align: left;
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+}
+.text{
+    padding-left: 10px;
+}
+.mrv_years ul,.years ul,.month_quarter ul,.voyage ul{
+    position: absolute;
+    top: 28px;
+    background: rgba(0, 0, 0,1);
+    width: 100%;
+    border: solid 1px #666;
+    box-sizing: border-box;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+.mrv_years ul li,.years ul li,.month_quarter ul li,.voyage ul li{
+    padding-left: 10px;
+}
+.mrv_years ul li:hover,.years ul li:hover,.month_quarter ul li:hover,.voyage ul li:hover{
+    background-color: #111;
+}
+.voyage ul li label{
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+}
+.voyage ul li label input{
+    margin-right: 10px;
+}
+.right_black{
+    background-color:#0f0f0f;
+    font-weight: bold;
+    height: 28px;
+    float: right;
+    text-align: center;
+    line-height: 28px;
+}
+.right_black span{
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    float: left;
+    margin: 13px 2px;
+}
+.right_black span:nth-of-type(1){
+    margin-left: 10px;
+}
+.right_black span:nth-of-type(3){
+    margin-right: 10px;
+}
+.query{
+    width: 10%;
+    height: 28px;
+    line-height: 28px;
+    background: #0f0f0f;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+}
+.query img{
+    width: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.add{
+    width: 10%;
+    height: 28px;
+    line-height: 28px;
+    background: #0f0f0f;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    margin-right: 20px;
+}
+.add img{
+    width: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.nt_tab{
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    margin: 0;
+}
+.nt_tab table th{
+    border-left: 3px solid #3e3f41;
+    border-top: 3px solid #3e3f41;
+    background: rgba(0, 0, 0, 0.4)
+}
+.nt_tab table td{
+    border-left: 3px solid #3e3f41;
+    border-top: 3px solid #3e3f41;
+}
+.nt_nrvpage{
+    width: 400px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.4)
+}
+.nt_right{
+    float: right;
+    height: 30px;
+    margin-right: 30px;
+}
+.nt_right div{
+    float: left;
+    background: #616264;
+    height: 20px;
+    margin-top: 5px;
+    line-height: 20px;
+    font-size: 12px;
+    padding: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nt_right div:nth-of-type(1){
+    margin-right: 20px;
+}
+.nt_nrvpageL img{
+    cursor: pointer;
+}
+.hide{
+    display: none;
+}

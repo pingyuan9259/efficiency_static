@@ -1,0 +1,18 @@
+@media screen and (max-width: 1400px) {
+    .nt_to_left {
+        width: 100%;
+        min-width: 1280px;
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .nt_to_right {
+        width: 100%;
+        min-width: 1280px;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+}

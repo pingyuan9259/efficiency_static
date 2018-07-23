@@ -1,0 +1,147 @@
+.nt_indleft {
+    float: left;
+    width: 243px;
+    margin-left: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.nt_indleft .nt_indleft_title {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+
+.nt_indleft .nt_indleft_title:first-child {
+    margin-top: 0;
+}
+
+.nt_indleft .nt_indLeft_main {
+    display: inline-block;
+    width: 255px;
+}
+
+.nt_indleft .nt_indLeft_main li {
+    width: 116px;
+    height: 132px;
+    position: relative;
+    margin: 11px 11px 0 0;
+    float: left;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.nt_indleft .nt_indLeft_main li p {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.nt_indleft .nt_indLeft_main li span {
+    font-size: 12px;
+}
+
+.nt_indleft .nt_indLeft_main li img {
+    width: 17px;
+    display: block;
+    margin-top: 20px;
+}
+
+.nt_indleft .nt_indLeft_main li .nt_indLeft_main_info {
+    font-size: 12px;
+    height: 40px;
+    line-height: 16px;
+    margin-top: 3px;
+}
+
+.nt_indleft .nt_indLeft_main li .nt_indLeft_main_div {
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.nt_indleft .nt_indLeft_main li .nt_indLeft_main_dndiv {
+    position: absolute;
+    top: 0;
+    left: 127px;
+    width: 160px;
+    min-height: 135px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    line-height: 22px;
+}
+
+.nt_indleft .nt_indLeft_main li .nt_indLeft_main_dndiv:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-4px, -5px) rotate(45deg);
+}
+
+/* nt_ind_eca */
+
+.nt_ind_eca {
+    width: 243px;
+    margin-top: 20px;
+}
+
+.nt_ind_eca_tit {
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+.nt_ind_eca_con {
+    position: relative;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 0 10px;
+    padding-top: 24px;
+    box-sizing: border-box;
+}
+
+.nt_ind_eca_con p {
+    font-size: 12px;
+    line-height: 26px;
+    color: #ccc;
+    transform: scale(0.85);
+    margin-left: -15px;
+}
+
+.nt_ind_eca_con .nt_ind_eca_val {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    border: 1px solid #ccc;
+    width: 120px;
+}
+
+.nt_ind_eca_con .nt_ind_eca_val span {
+    color: #c1240a;
+    font-size: 14px;
+    text-align: center;
+    line-height: 26px;
+    display: block;
+}
+
+.nt_ind_eca_btn {
+    background: #c1240a;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 20px 0;
+}
