@@ -1,0 +1,18 @@
+.sub_contaioner{
+    margin-left: 20px;
+    margin-top: -10px;
+    height: 73vh;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sub_contaioner .container_item{
+    float: left;
+    margin-bottom: 10px;
+    height: 100%;
+}
+
+.sub_contaioner .container_item:last-child{
+    width: 80%;
+    margin-left: 1%;
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SOMS</title>
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../resources/css/mainnx_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/base/base_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/pfblack_my.css" />
+    <link rel="stylesheet" href="../../resources/css/font.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_left.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_right.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/overview/overview.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/overview/overview_detail.css" />
+</head>
+
+<body>
+<!-- main_header start -->
+<section class="main_header">
+
+    <div class="nt_top">
+        <a href="" class="nt_top_logo">
+            <div class="content">
+                <img src="../../resources/images/logo.png" />
+                <p class="updateTime">
+                    最新更新时间：
+                    <span>2018-5-7 9:19:42</span>
+                </p>
+            </div>
+        </a>
+
+        <ul class="nt_top_nav">
+            <li>
+                <a class="nt_top_nav_font nt_top_nav_on" href="">efficiency optimization</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">efficiency optimization</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+
+            <li>
+                <a class="nt_top_nav_font" href="">能效分析管理</a>
+            </li>
+        </ul>
+
+        <div class="nt_top_right">
+            <a href="">
+                <img src="../../resources/icons/sun_48X48.ico" />
+            </a>
+
+            <a href="">
+                <img src="../../resources/icons/uk_48X48.ico" />
+            </a>
+
+            <a href="javacript:void(0);" id="setting">
+                <img src="../../resources/images/icon_set.png" /> 设置
+            </a>
+
+            <a href="javacript:void(0);" id="login">
+                <img src="../../resources/images/login.png" />
+            </a>
+
+            <a href="javacript:void(0);" id="exit">
+                <img src="../../resources/images/icon_exit.png" />
+            </a>
+        </div>
+    </div>
+
+
+    <!--参数配置弹窗 start-->
+    <div class="nx_diatc" id="setting_dialog" style="height: 300px;">
+        <div class="nx_diatcT">
+            <span class="nx_diatcL">参数配置</span>
+            <span class="nx_diatcR">
+                <img src="../../resources/images/icon_close.png" onclick="tool.closeDialog()" />
+            </span>
+        </div>
+        <div class="nt_tab">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>CO2排放数据采样周期</th>
+                    <td>
+                        <select id="co2Value" class="nt_cstopdate_sel">
+                            <option value="12">12小时</option>
+                            <option value="24">24小时</option>
+                            <option value="72">3天</option>
+                            <option value="168">7天</option>
+                            <option value="360">15天</option>
+                            <option value="720">30天</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>设备能效默认指标配置</th>
+                    <td>
+                        <select id="options" class="nt_cstopdate_sel" multiple="multiple" style="height: 20px;width: 200px;">
+                            <optgroup label="关键指标">
+                                <option value="shipefficiencyoptimization_hullFuelEfficiency:assessment.index.hullfuelefficiency_KG/nm" selected="selected">船舶燃油效率</option>
+                                <option value="hostpropulsion_meFuelEfficiency:assessment.index.mefuelefficiency_g/kwh">主机燃油效率</option>
+                                <option value="shipvoyagestate_totalPower:assessment.parameter.totalpower_KW" >船舶总功率</option>
+                            </optgroup>		
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>载货量</th>
+                    <td>
+                        <input id="carge" type="text" class="nt_cstopdate_put username" value="" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <span>
+                    <input type="button" class="nt_cstopdate_put saveSysparam" value="保存" />
+                </span>
+            </div>
+        </div>
+    </div><!--参数配置弹窗 end-->
+
+    <!--弹出登录弹窗 start-->
+    <div class="nx_diatc" id="login_dialog" style="height: 220px;width: 600px;">
+        <div class="nx_diatcT">
+            <span class="nx_diatcL">登录系统</span>
+            <span class="nx_diatcR">
+                <img src="../../resources/images/icon_close.png" onclick="tool.closeDialog()" />
+            </span>
+        </div>
+        <div class="nt_tab">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>用户名</th>
+                    <td>
+                        <input type="text" class="nt_cstopdate_put username" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>密码</th>
+                    <td>
+                        <input type="password" class="nt_cstopdate_put password" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <span>
+                    <input type="button" class="nt_cstopdate_put loginBtn" value="登录" />
+                </span>
+            </div>
+
+        </div>
+    </div><!--弹出登录弹窗 end-->
+
+</section><!-- main_header end -->
+
+<div class="container">
+    <!-- sub_header start -->
+    <section class="sub_header">
+        <ul>
+            <li><a href="">概览</a></li>
+            <li><a href="">转速优化</a></li>
+            <li><a href="">纵倾优化</a></li>
+            <li><a class="active">滑失率分析</a></li>
+        </ul>
+    </section><!-- sub_header end -->
+
+    <div class="sub_contaioner">
+        <div class="container_item">
+            <p class="container_item_title">船舶燃油效率</p>
+            <li>
+                <p class="nt_indrightB_item_tit">对水速度</p>
+                <p class="nt_indrightB_item_val">0</p>
+                <p class="nt_indrightB_item_unit">Kn</p>
+                <img src="../../resources/images/dash_borad_bg_1.png" class="nt_indrightB_item_bg">
+                <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="nt_indrightB_item_dot">
+            </li>
+            <a href="../state/overview" class="container_item_button">
+                <img src="../../resources/images/icon_zx.png" />
+            </a>
+            <li>
+                <div class="container_item_item_group">
+                    <p class="container_item_item_tit">这是一个数据</p>
+                    <p class="container_item_item_val">7.43kg/h</p>
+                </div>
+                <div class="container_item_item_group">
+                    <p class="container_item_item_tit">这是一个数据</p>
+                    <p class="container_item_item_val">7.43kg/h</p>
+                </div>
+                <div class="container_item_item_group">
+                    <p class="container_item_item_tit">这是一个数据</p>
+                    <p class="container_item_item_val">7.43kg/h</p>
+                </div>
+                <div class="container_item_item_group">
+                    <p class="container_item_item_tit">这是一个数据</p>
+                    <p class="container_item_item_val">7.43kg/h</p>
+                </div>
+            </li>
+        </div>
+        <div class="container_item">
+            <p class="container_item_title">船舶燃油效率</p>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jQueryRotate.js"></script>
+<script type="text/javascript" src="../../resources/js/multiSelect/jquery.multiSelect.js"></script>
+<script type="text/javascript" src="../../resources/js/easydialog.js"></script>
+<script type="text/javascript" src="../../resources/js/tool.js"></script>
+<script type="text/javascript" src="../../resources/js/sysproperties.js"></script>
+<script type="text/javascript" src="../../resources/js/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../resources/js/fragments/main_header.js"></script>
+</body>

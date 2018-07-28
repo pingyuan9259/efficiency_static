@@ -106,3 +106,9 @@
     text-align:center;
     margin-top: 3px;
 }
+
+.container_item_button{
+    float: right;
+    margin-right: 20px;
+    margin-top: -40px;
+}
