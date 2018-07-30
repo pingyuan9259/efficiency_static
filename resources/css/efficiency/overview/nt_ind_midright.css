@@ -35,11 +35,15 @@
     overflow: hidden;
 }
 
+.nt_indrightT ul li .value {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
 .nt_indrightT ul li span {
     color: #6bb72d;
-    font-size: 16px;
+    font-size: 12px;
     text-align: right;
-    display: block;
 }
 
 .nt_indrightT ul li img {

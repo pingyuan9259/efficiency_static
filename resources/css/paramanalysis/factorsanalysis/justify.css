@@ -1,26 +1,32 @@
 @media screen and (max-width: 1400px) {
-    .nt_so_left {
+    .panel_left {
         width: 100%;
-        min-width: 1280px;
-        margin: 0;
-        margin-bottom: 20px;
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
-
-    .nt_so_left .chart_body {
-        height: calc(100vh - 380px) !important;
-    }
-
-    .nt_so_right {
-        width: 100%;
-        min-width: 1280px;
         margin: 0;
         padding: 0 20px;
         box-sizing: border-box;
     }
 
-    .nt_so_right .chart_body {
+    .panel_left .chart_container {
+        width: calc(50% - 10px);
+    }
+
+    .panel_left .chart_container:nth-child(odd) {
+        margin-right: 20px;
+    }
+
+    .panel_left .chart_body {
+        height: calc(50vh - 135px) !important;
+    }
+
+    .panel_right {
+        width: 100%;
+        min-width: 1280px;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .panel_right .chart_body {
         height: 320px !important;
     }
 }

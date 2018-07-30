@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SOMS</title>
+
+    <link rel="shortcut icon" href="../../resources/icons/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../resources/css/mainnx_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/base/base_my_zh.css" />
+    <link rel="stylesheet" href="../../resources/css/pfblack_my.css" />
+    <link rel="stylesheet" href="../../resources/css/font.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
+    <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/me/me_panel.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/me/line_panel.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/me/gauge_panel.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/me/info_panel.css" />
+    <link rel="stylesheet" href="../../resources/css/stateanalysis/me/justify.css" />
+</head>
+
+<body>
+
+    <div class="main_header">
+
+        <div class="nt_top">
+            <a href="" class="nt_top_logo">
+                <div class="content">
+                    <img src="../../resources/images/logo.png" />
+                    <p class="updateTime">
+                        最新更新时间：
+                        <span>2018-5-7 9:19:42</span>
+                    </p>
+                </div>
+            </a>
+
+            <ul class="nt_top_nav">
+                <li>
+                    <a class="nt_top_nav_font nt_top_nav_on" href="">状态评估优化</a>
+                </li>
+
+                <li>
+                    <a class="nt_top_nav_font" href="">能效分析管理</a>
+                </li>
+            </ul>
+
+            <div class="nt_top_right">
+                <a href="">
+                    <img src="../../resources/icons/sun_48X48.ico" />
+                </a>
+
+                <a href="">
+                    <img src="../../resources/icons/uk_48X48.ico" />
+                </a>
+
+                <a href="javacript:void(0);" id="setting">
+                    <img src="../../resources/images/icon_set.png" /> 设置
+                </a>
+
+                <a href="javacript:void(0);" id="login">
+                    <img src="../../resources/images/login.png" />
+                </a>
+
+                <a href="javacript:void(0);" id="exit">
+                    <img src="../../resources/images/icon_exit.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- sub_header start -->
+        <section class="sub_header">
+            <ul>
+                <li>
+                    <a class="active">概览</a>
+                </li>
+                <li>
+                    <a href="">转速优化</a>
+                </li>
+                <li>
+                    <a href="">纵倾优化</a>
+                </li>
+                <li>
+                    <a href="">滑失率分析</a>
+                </li>
+            </ul>
+        </section>
+        <!-- sub_header end -->
+
+        <!-- 主机图 -->
+        <section class="me_panel">
+            <p class="title">ME</p>
+        </section>
+
+        <!-- 曲线图 -->
+        <section class="line_panel">
+            <p class="title">Fuel Efficiency(KWh)</p>
+
+            <div class="chart_container">
+                <div id="chartFuelEfficiency" class="chart_body"></div>
+            </div>
+
+            <div class="chart_info">
+                <i></i> HFO:&nbsp;&nbsp; Load:
+                <span class="load">0</span> %&nbsp;&nbsp; Power:
+                <span class="power">0</span> kW&nbsp;&nbsp; Running Time:
+                <span class="power">0</span> hrs
+            </div>
+        </section>
+
+        <section class="gauge_panel">
+            <!-- 两个仪表盘 -->
+            <div class="gauge_container gauge_left">
+                <li>
+                    <div class="gauge_body">
+                        <p class="gauge_panel_tit">Flow</p>
+                        <p class="gauge_panel_val">0</p>
+                        <p class="gauge_panel_unit">kg/h</p>
+                        <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                        <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                    </div>
+
+                    <ul class="gauge_info">
+                        <li>
+                            <span class="key">ME FO Inlet Flow: </span>
+                            <span class="unit">kg/h</span>
+                            <span class="value">455</span>
+                        </li>
+                        <li>
+                            <span class="key">ME FO Inlet Temp: </span>
+                            <span class="unit">°C</span>
+                            <span class="value">68</span>
+                        </li>
+                        <li>
+                            <span class="key">ME FO Inlet Density: </span>
+                            <span class="unit">kg/m³</span>
+                            <span class="value">68</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="gauge_body">
+                        <p class="gauge_panel_tit">Flow</p>
+                        <p class="gauge_panel_val">0</p>
+                        <p class="gauge_panel_unit">kg/h</p>
+                        <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                        <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                    </div>
+
+                    <ul class="gauge_info">
+                        <li>
+                            <span class="key">ME FO Inlet Flow: </span>
+                            <span class="unit">kg/h</span>
+                            <span class="value">455</span>
+                        </li>
+                        <li>
+                            <span class="key">ME FO Inlet Temp: </span>
+                            <span class="unit">°C</span>
+                            <span class="value">68</span>
+                        </li>
+                        <li>
+                            <span class="key">ME FO Inlet Density: </span>
+                            <span class="unit">kg/m³</span>
+                            <span class="value">68</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+
+            <!-- 四个仪表盘 -->
+            <div class="gauge_container gauge_right">
+                <li class="gauge_body">
+                    <p class="gauge_panel_tit">Trim</p>
+                    <p class="gauge_panel_val">0</p>
+                    <p class="gauge_panel_unit">m</p>
+                    <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                    <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                </li>
+                <li class="gauge_body">
+                    <p class="gauge_panel_tit">Rudder</p>
+                    <p class="gauge_panel_val">0</p>
+                    <p class="gauge_panel_unit">deg</p>
+                    <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                    <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                </li>
+                <li class="gauge_body">
+                    <p class="gauge_panel_tit">Trim</p>
+                    <p class="gauge_panel_val">0</p>
+                    <p class="gauge_panel_unit">m</p>
+                    <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                    <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                </li>
+                <li class="gauge_body">
+                    <p class="gauge_panel_tit">Rudder</p>
+                    <p class="gauge_panel_val">0</p>
+                    <p class="gauge_panel_unit">deg</p>
+                    <img src="../../resources/images/dash_borad_bg_1.png" class="gauge_panel_bg">
+                    <img src="../../resources/images/dash_borad_dot.png" style="transform: rotate(270deg)" class="gauge_panel_dot">
+                </li>
+            </div>
+        </section>
+
+        <section class="info_panel">
+            <li class="info_container">
+                <p class="title">Fuel oil system</p>
+                <ul>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="info_container">
+                <p class="title">Lubrication oil system</p>
+                <ul>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="info_container">
+                <p class="title">Air System</p>
+                <ul>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="info_container">
+                <p class="title">Misc</p>
+                <ul>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                    <li>
+                        <span class="key">ME FO Inlet Density: </span>
+                        <span class="unit">kg/m³</span>
+                        <span class="value">68</span>
+                    </li>
+                </ul>
+            </li>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/jQueryRotate.js"></script>
+    <script type="text/javascript" src="../../resources/js/multiSelect/jquery.multiSelect.js"></script>
+    <script type="text/javascript" src="../../resources/js/easydialog.js"></script>
+    <script type="text/javascript" src="../../resources/js/tool.js"></script>
+    <script type="text/javascript" src="../../resources/js/sysproperties.js"></script>
+    <script type="text/javascript" src="../../resources/js/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/fragments/main_header.js"></script>
+    <script type="text/javascript" src="../../resources/js/pages/stateanalysis/me.js"></script>
+</body>
+
+</html>

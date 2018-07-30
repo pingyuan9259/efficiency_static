@@ -1,0 +1,1 @@
+var rootpath = $("#contextpath").val();

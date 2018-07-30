@@ -8,11 +8,19 @@
         box-sizing: border-box;
     }
 
+    .nt_to_left .chart_body {
+        height: calc(100vh - 380px) !important;
+    }
+
     .nt_to_right {
         width: 100%;
         min-width: 1280px;
         margin: 0;
         padding: 0 20px;
         box-sizing: border-box;
+    }
+
+    .nt_to_right .chart_body {
+        height: 320px !important;
     }
 }

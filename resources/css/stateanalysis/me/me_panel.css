@@ -1,0 +1,15 @@
+.me_panel {
+    width: calc(65% - 20px);
+    float: left;
+    margin-left: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    height: calc(50vh - 96px);
+    margin-bottom: 20px;
+}
+
+.me_panel .title {
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    background: rgba(0, 0, 0, 0.25);
+}

@@ -12,4 +12,11 @@ $(function(){
 	},function(){
 		$(this).find(".nt_indLeft_main_dndiv").hide();
 	});
+	
+	$.getJSON(server_url+"/shipvoyageecawarning",function(data){
+		if(data.state){
+   		   	$("#timeToEca").text(tool.defaultStringUnit(data.result.strEcaTime, "", '--'));
+ 			$("#nmToEca").text(tool.defaultStringUnit(data.result.strEcaDistant, "", '--'));
+   	   }
+	});
 });

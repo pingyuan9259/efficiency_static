@@ -13,13 +13,11 @@
     <link rel="stylesheet" href="../../resources/css/font.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
-    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_left.css" />
-    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_right.css" />
-    <link rel="stylesheet" href="../../resources/css/efficiency/speed/justify.css" />
+    <link rel="stylesheet" href="../../resources/css/flatpickr.css">
+    <link rel="stylesheet" href="../../resources/css/decisionsupport/eca/customization.css"/>
 </head>
 
 <body>
-<!-- main_header start -->
 <section class="main_header">
 
     <div class="nt_top">
@@ -35,7 +33,7 @@
 
         <ul class="nt_top_nav">
             <li>
-                <a class="nt_top_nav_font nt_top_nav_on" href="">efficiency optimization</a>
+                <a class="nt_top_nav_font" href="">efficiency optimization</a>
             </li>
 
             <li>
@@ -47,7 +45,7 @@
             </li>
 
             <li>
-                <a class="nt_top_nav_font" href="">能效分析管理</a>
+                <a class="nt_top_nav_font nt_top_nav_on" href="">能效分析管理</a>
             </li>
 
             <li>
@@ -110,7 +108,7 @@
                                 <option value="shipefficiencyoptimization_hullFuelEfficiency:assessment.index.hullfuelefficiency_KG/nm" selected="selected">船舶燃油效率</option>
                                 <option value="hostpropulsion_meFuelEfficiency:assessment.index.mefuelefficiency_g/kwh">主机燃油效率</option>
                                 <option value="shipvoyagestate_totalPower:assessment.parameter.totalpower_KW" >船舶总功率</option>
-                            </optgroup>		
+                            </optgroup>
                         </select>
                     </td>
                 </tr>
@@ -166,89 +164,106 @@
     </div><!--弹出登录弹窗 end-->
 
 </section><!-- main_header end -->
-
-<div class="container">
+<section class="container">
     <!-- sub_header start -->
     <section class="sub_header">
         <ul>
-            <li><a class="active">概览</a></li>
-            <li><a href="">转速优化</a></li>
-            <li><a href="">纵倾优化</a></li>
-            <li><a href="">滑失率分析</a></li>
+            <li><a class="active">ECA</a></li>
+            <li><a>Fuel Management</a></li>
+            <li><a>MRV</a></li>
         </ul>
     </section><!-- sub_header end -->
-
-    <section class="nt_so_left">
-        <div class="chart_container">
-            <p class="chart_title">Vessel Fuel Effivecy</p>
-            <div id="chartVesselFuelEffivecy" class="chart_body"></div>
-
-            <!-- chart_info -->
-            <div class="chart_info">
-                <div class="chart_info_item">
-                    <p class="title">Current</p>
-                    <ul>
-                        <li>
-                            <span class="key">ME RPM</span>
-                            <span class="value">rpm</span>
-                            <span class="value">154</span>
-                        </li>
-                        <li>
-                            <span class="key">ME RPM</span>
-                            <span class="value">rpm</span>
-                            <span class="value">154</span>
-                        </li>
-                        <li>
-                            <span class="key">ME RPM</span>
-                            <span class="value">rpm</span>
-                            <span class="value">154</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="chart_info_item">
-                    <p class="title">Optimization</p>
-                    <ul>
-                        <li>
-                            <span class="key">ME RPM</span>
-                            <span class="value">rpm</span>
-                            <span class="value">154</span>
-                        </li>
-                        <li>
-                            <span class="key">ME RPM</span>
-                            <span class="value">rpm</span>
-                            <span class="value">154</span>
-                        </li>
-                    </ul>
-                </div>
+    <section class="map">
+        <section class="left_bar">
+            <div class="left_bar_top">
+                <p class="title">Current information</p>
+                <p class="text">Time:<br/>2018-4-24 16:38:14</p>
+                <p class="text">SOG:<br/>-- n</p>
+                <p class="text">COG:<br/>-- °</p>
+                <p class="text">ME RPM:<br/>-- rpm</p>
+                <p class="text">Slip Rate:<br/>--</p>
+                <p class="text">HULL Fuel Efficiency:<br/>-- rpm</p>
+                <p class="text">Wind speed:<br/>-- m/s</p>
+                <p class="text">Wind direction:<br/>-- n</p>
             </div>
-        </div>
+            <div class="left_bar_bottom">
+                <p class="title">ECA Emission Zone</p>
+                <p class="text">nm to ECA:<br/>-- nm</p>
+                <p class="text">time to ECA:<br/>--</p>
+            </div>
+        </section>
+        <div id="map1"></div>
     </section>
+</section>
+<section class="hide">
+    <div class="nt_mapMLcot nt_nxMaplist" style="z-index:999;" id="popupEca">
+        <ul>
+            <li>NOX排放限制区：</li>
+            <li class="fb">n&lt;130rpm&nbsp;&nbsp;130rpm≤n&lt;2000rpm&nbsp;&nbsp;n≥2000rpm</li>
+            <li class="fb">3.4g/kWh&nbsp;&nbsp;9*n(-0.2)g/kWh&nbsp;&nbsp;&nbsp;&nbsp;2.0g/kWh</li>
+            <li>SOX排放限制区：</li>
+            <li class="fb">≤6.0g/kWh</li>
+        </ul>
+    </div>
+    <div class="nt_mapMLcot nt_nxMaplist" id="popup">
+        <ul id="popup1">
+            <li>设备：</li>
+            <li class="fb" id="equipment_popup"></li>
+            <li>交换模式：</li>
+            <li class="fb" id="switchingMode_popup">21 n</li>
+            <li>换油开始时间：</li>
+            <li class="fb" id="strCommenceTime_popup">24°</li>
+            <li>经度：</li>
+            <li class="fb" id="longitude_popup">124 rpm</li>
+            <li>纬度：</li>
+            <li class="fb" id="latitude_popup">25%</li>
+            <li>速度：</li>
+            <li class="fb" id="speed_popup">442 KG/nm </li>
+            <li>换油结束时间：</li>
+            <li class="fb" id="strCompleteTime_popup"></li>
 
-    <section class="nt_so_right">
-        <div class="chart_container">
-            <p class="chart_title">Slip</p>
-            <div id="chartSlip" class="chart_body"></div>
-        </div>
-    
-        <div class="chart_container">
-            <p class="chart_title">Speed</p>
-            <div id="chartSpeed" class="chart_body"></div>
-        </div>
-    
-        <div class="chart_container">
-            <p class="chart_title">Load & Fuel Efficiency</p>
-            <div id="chartLoad" class="chart_body"></div>
-        </div>
-    </section>
-</div>
+            <li>LSHFO燃油舱编号：</li>
+            <li class="fb" id="tankNo_popup"></li>
+            <li>结束时LSHFO质量：</li>
+            <li class="fb" id="bunkerTankEndOfChangeover_popup"></li>
+            <li>消耗LSHFO质量：</li>
+            <li class="fb" id="fuelConsumedEndOfChangeover_popup"></li>
+            <li>硫含量：</li>
+            <li class="fb" id="sulphurContent_popup"></li>
+            <li>进入SECA时间：</li>
+            <li class="fb" id="strSecaStartDate_popup"></li>
+            <li>离开SECA时间：</li>
+            <li class="fb" id="strSecaEndDate_popup"></li>
+            <li>主管工程师签字：</li>
+            <li class="fb" id="signature_popup"></li>
+        </ul>
+        <ul id="popup2">
+            <li>时间：</li>
+            <li class="fb" id="time">2016/06/16    16：42：14</li>
+            <li>对地速度：</li>
+            <li class="fb" id="sog">21 n</li>
+            <li>船舶航向：</li>
+            <li class="fb" id="cog">24°</li>
+            <li>主机转速：</li>
+            <li class="fb" id="meRpm">124 rpm</li>
+            <li>船舶滑失率：</li>
+            <li class="fb" id="slipRate">25%</li>
+            <li>船舶燃油效率：</li>
+            <li class="fb" id="hullFuelEfficiency">442 KG/nm </li>
+            <li>风速：</li>
+            <li class="fb" id="windSpeed">153 m/s</li>
+            <li>风向：</li>
+            <li class="fb" id="windDiration">14°</li>
+        </ul>
+    </div>
+</section>
 
 <script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="../../resources/js/jQueryRotate.js"></script>
-<script type="text/javascript" src="../../resources/js/multiSelect/jquery.multiSelect.js"></script>
-<script type="text/javascript" src="../../resources/js/easydialog.js"></script>
+<script type="text/javascript" src="../../resources/js/flatpickr.js"></script>
+<script type="text/javascript" src="../../resources/js/flatpickr_zh.js"></script>
 <script type="text/javascript" src="../../resources/js/tool.js"></script>
-<script type="text/javascript" src="../../resources/js/sysproperties.js"></script>
-<script type="text/javascript" src="../../resources/js/echarts/echarts.min.js"></script>
-<script type="text/javascript" src="../../resources/js/fragments/main_header.js"></script>
-<script type="text/javascript" src="../../resources/js/pages/efficiency/speed_optimization.js"></script>
+<link href="../../resources/css/ol/ol.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../resources/js/ol/ol.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../resources/js/pages/decisionsupport/eca.js"></script>
 </body>
+</html>

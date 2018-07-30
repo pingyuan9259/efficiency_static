@@ -1,0 +1,44 @@
+.info_panel {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.info_panel .info_container {
+    background: rgba(0, 0, 0, 0.25);
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+}
+
+.info_panel .info_container .title {
+    background: rgba(0, 0, 0, 0.25);
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+}
+
+.info_panel .info_container ul {
+    overflow-y: auto;
+    height: 200px;
+    padding: 10px 0;
+}
+
+.info_panel .info_container li {
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.info_panel .info_container li .key {
+    float: left;
+}
+
+.info_panel .info_container li .value,
+.info_panel .info_container li .unit {
+    float: right;
+    font-size: 15px;
+}

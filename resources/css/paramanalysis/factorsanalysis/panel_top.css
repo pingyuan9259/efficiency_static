@@ -1,0 +1,7 @@
+.panel_top {
+    display: flex;
+    width: 450px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}

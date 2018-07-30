@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../resources/css/font.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/decisionsupport/mrv/mrv.css" />
+    <link rel="stylesheet" href="../../resources/css/decisionsupport/mrv/mrv.css" />
 </head>
 
 <body>
@@ -164,7 +164,82 @@
     </div><!--弹出登录弹窗 end-->
 
 </section><!-- main_header end -->
-
+<section class="mrv_mc_new_plan hide">
+    <section class="new_plan">
+        <div class="new_plan_header">new plan<img src="../../resources/images/icon_close.png"/></div>
+        <form id="shipVoyageEfficiencyStats" class="nt_tab" action="/eca/mrv" method="post" novalidate="novalidate">
+            <input id="voyageEfficiencyStatsid" name="id" type="hidden" value="">
+            <input id="portOfDeparture" name="portOfDeparture" type="hidden" value="">
+            <input id="portOfArrival" name="portOfArrival" type="hidden" value="">
+            <table cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <th>航行任务 No.</th>
+                <td><input id="voyageNo" name="voyageNo" class="nt_tabput" type="text" value=""></td>
+                <th>驶离港口</th>
+                <td><input id="portNameOfDeparture" name="portNameOfDeparture" class="nt_tabput ui-autocomplete-input" style="width:180px" type="text" value="" autocomplete="off"></td>
+                <th>到达港口</th>
+                <td><input id="portNameOfArrival" name="portNameOfArrival" class="nt_tabput ui-autocomplete-input" style="width:180px" type="text" value="" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <th>驶离时间</th>
+                <td><input id="strDateOfDepature" name="strDateOfDepature" class="nt_tabput" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" style="width:180px" type="text" value=""></td>
+                <th>到达时间</th>
+                <td><input id="strDateOfArrival" name="strDateOfArrival" class="nt_tabput" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" style="width:180px" type="text" value=""></td>
+                <th>航行距离</th>
+                <td><input id="distanceTravelled" name="distanceTravelled" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            <tr>
+                <th>海上时间</th>
+                <td><input id="timeAtsea" name="timeAtsea" class="nt_tabput" type="text" value="">h</td>
+                <th>货物</th>
+                <td><input id="cargo" name="cargo" class="nt_tabput" type="text" value=""></td>
+                <th>存储燃油</th>
+                <td><input id="storageHfo" name="storageHfo" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            <tr>
+                <th>存储柴油</th>
+                <td><input id="storageFo" name="storageFo" class="nt_tabput" type="text" value=""></td>
+                <th>消耗燃油</th>
+                <td><input id="consumptionHfo" name="consumptionHfo" class="nt_tabput" type="text" value=""></td>
+                <th>消耗柴油</th>
+                <td><input id="consumptionFo" name="consumptionFo" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            <tr>
+                <th>补充燃油</th>
+                <td><input id="bunkeringHfo" name="bunkeringHfo" class="nt_tabput" type="text" value=""></td>
+                <th>补充柴油</th>
+                <td><input id="bunkeringFo" name="bunkeringFo" class="nt_tabput" type="text" value=""></td>
+                <th>CO<sub>2</sub>排放</th>
+                <td><input id="co2emittedTotal" name="co2emittedTotal" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            <tr>
+                <th>
+                    CO<sub>2</sub>排放<br>CO<sub>2</sub>航行排放</th>
+                <td><input id="co2emittedVoyages" name="co2emittedVoyages" class="nt_tabput" type="text" value=""></td>
+                <th>
+                    CO<sub>2</sub>排放<br>CO<sub>2</sub>离港排放</th>
+                <td><input id="co2emittedDeparted" name="co2emittedDeparted" class="nt_tabput" type="text" value=""></td>
+                <th>
+                    CO<sub>2</sub>排放<br>CO<sub>2</sub>到港排放</th>
+                <td><input id="co2emittedToports" name="co2emittedToports" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            <tr>
+                <th>
+                    CO<sub>2</sub>排放<br>CO<sub>2</sub>在港排放</th>
+                <td><input id="co2emittedWithinports" name="co2emittedWithinports" class="nt_tabput" type="text" value=""></td>
+            </tr>
+            </tbody>
+            </table>
+        </form>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <span><input type="button" class="nt_cstopdate_put saveVoyageEfficiencyStatsBtn" value="保存"></span>
+                <span><input type="button" class="nt_cstopdate_put deleteVoyageEfficiencyStatsBtn" value="删除" style="display: none;"></span>
+            </div>
+        </div>
+    </section>
+</section>
 <div class="container">
     <!-- sub_header start -->
     <section class="sub_header">
@@ -187,18 +262,32 @@
             <div class="years">
                 <p class="years_P"><span class="text">2017</span><span class="right_black"><span></span><span></span><span></span></span></p>
                 <ul class="hide">
-                    <li>2017</li>
-                    <li>2016</li>
-                    <li>2015</li>
-                    <li>2014</li>
+                    <li yearNum="2017">2017</li>
+                    <li yearNum="2016">2016</li>
+                    <li yearNum="2015">2015</li>
+                    <li yearNum="2014">2014</li>
                 </ul>
             </div>
             <div class="month_quarter">
                 <p class="month_quarter_p"><span class="text">全部</span><span class="right_black"><span></span><span></span><span></span></span></p>
                 <ul class="hide">
-                    <li>全部</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
-                    <li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li><li>一季度</li>
-                    <li>二季度</li><li>三季度</li><li>四季度</li>
+                    <li monthNum="all">全部</li>
+                    <li monthNum="1">1</li>
+                    <li monthNum="2">2</li>
+                    <li monthNum="3">3</li>
+                    <li monthNum="4">4</li>
+                    <li monthNum="5">5</li>
+                    <li monthNum="6">6</li>
+                    <li monthNum="7">7</li>
+                    <li monthNum="8">8</li>
+                    <li monthNum="9">9</li>
+                    <li monthNum="10">10</li>
+                    <li monthNum="11">11</li>
+                    <li monthNum="12">12</li>
+                    <li monthNum="13">一季度</li>
+                    <li monthNum="14">二季度</li>
+                    <li monthNum="15">三季度</li>
+                    <li monthNum="16">四季度</li>
                 </ul>
             </div>
         </div>
@@ -206,10 +295,7 @@
             <div class="voyage">
                 <p class="voyage_p"><span class="text">请选择</span><span class="right_black"><span></span><span></span><span></span></span></p>
                 <ul class="hide">
-                    <li><label><input type="checkbox" checked="checked" />aaa</label></li>
-                    <li><label><input type="checkbox" checked="checked" />bbb</label></li>
-                    <li><label><input type="checkbox" checked="checked" />ccc</label></li>
-                    <li><label><input type="checkbox" checked="checked" />ddd</label></li>
+
                 </ul>
             </div>
         </div>
@@ -253,11 +339,7 @@
             </tr>
             </tbody>
             <tbody id="result_table">
-            <tr class="tr_data"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr class="tr_data"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr class="tr_data"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr class="tr_data"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr class="tr_data"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
             </tbody>
             <tbody><tr>
                 <td>合计</td>
@@ -265,15 +347,15 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td id="total_distanceTravelled">165755.00</td>
-                <td id="total_timeAtsea">52.00</td>
-                <td id="total_cargo">63.00</td>
-                <td id="total_storageHfo">74.00</td>
-                <td id="total_storageFo">85.00</td>
-                <td id="total_consumptionHfo">917.00</td>
-                <td id="total_consumptionFo">108.00</td>
-                <td id="total_bunkeringHfo">119.00</td>
-                <td id="total_bunkeringFo">130.00</td>
+                <td id="total_distanceTravelled"></td>
+                <td id="total_timeAtsea"></td>
+                <td id="total_cargo"></td>
+                <td id="total_storageHfo"></td>
+                <td id="total_storageFo"></td>
+                <td id="total_consumptionHfo"></td>
+                <td id="total_consumptionFo"></td>
+                <td id="total_bunkeringHfo"></td>
+                <td id="total_bunkeringFo"></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -291,10 +373,10 @@
         <div class="nt_nrvpageL">
             <span><img id="nav_first" src="../../resources/images/icon_pgleft.png"></span>
             <span><img id="nav_prev" src="../../resources/images/icon_pgprev.png"></span>
-            <span id="nav_curr">1</span>
+            <span id="nav_curr"></span>
             <span><img id="nav_next" src="../../resources/images/icon_pgnext.png"></span>
             <span><img id="nav_last" src="../../resources/images/icon_pgright.png"></span>
-            <span><span>共</span><span id="nav_total">1</span><span>页</span></span>
+            <span><span>共</span><span id="nav_total"></span><span>页</span></span>
         </div>
         <div class="nt_right">
             <div>打印预览</div>

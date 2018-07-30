@@ -34,28 +34,28 @@ $(function () {
                     data: [
                         {
                             name: params.nameA,
-                            icon: 'circle',
+                            icon: 'image:/resources/images/slip_echarts_icon_01.png',
                             textStyle:{
                                 color:'#666'
                             }
                         },
                         {
                             name: params.nameB,
-                            icon: 'circle',
+                            icon: 'image:/resources/images/slip_echarts_icon_02.png',
                             textStyle:{
                                 color:'#666'
                             }
                         },
                         {
                             name: params.nameC,
-                            icon: 'circle',
+                            icon: 'image:/resources/images/slip_echarts_icon_03.png',
                             textStyle:{
                                 color:'#666'
                             }
                         },
                         {
                             name: params.nameD,
-                            icon: 'circle',
+                            icon: 'image:/resources/images/slip_echarts_icon_04.png',
                             textStyle:{
                                 color:'#666'
                             }

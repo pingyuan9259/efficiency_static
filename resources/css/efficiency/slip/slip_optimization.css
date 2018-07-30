@@ -17,7 +17,7 @@
 
 .slip_top .chart_container .chart_body {
     width: 100%;
-    height: 300px;
+    height: calc(50vh - 100px);
 }
 
 .slip_bottom {
@@ -27,12 +27,17 @@
 }
 
 .slip_bottom .chart_container {
-    width: 670px;
+    width: calc(50% - 30px);
+    margin-right: 20px;
     float: left;
     margin-top: 20px;
-    margin-right: 40px;
     background: rgba(0, 0, 0, 0.25);
 }
+
+.slip_bottom .chart_container:last-child {
+    margin-right: 0;
+}
+
 
 .slip_bottom .chart_container .chart_title {
     background: rgba(0, 0, 0, 0.25);
@@ -43,5 +48,5 @@
 
 .slip_bottom .chart_container .chart_body {
     width: 100%;
-    height: 260px;
+    height: calc(50vh - 170px);
 }

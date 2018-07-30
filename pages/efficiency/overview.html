@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../../resources/css/font.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_indleft.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_indmid.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_ind_midright.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/nt_ind_right.css" />
-    <link rel="stylesheet" href="../../resources/css/pages/efficiency/overview/justify.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/overview/nt_indleft.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/overview/nt_indmid.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/overview/nt_ind_midright.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/overview/nt_ind_right.css" />
+    <link rel="stylesheet" href="../../resources/css/efficiency/overview/justify.css" />
 </head>
 
 <body>
@@ -349,7 +349,10 @@
                 </li>
                 <li>
                     <p>舵角</p>
-                    <span id="rudderangle">--°</span>
+                    <div class="value">
+                        <span id="rudderangle">222.5</span>
+                        <span id="rudderangle">°</span>
+                    </div>
                     <div style="height:94px;width:94px;background:url(/resources/images/icon_img1.png) no-repeat -3px center;">
                         <div id="rudderangleGauge" style="height:94px;width:94px;"></div>
                     </div>
@@ -440,59 +443,73 @@
                 <ul>
                     <li>
                         <span class="nt_indlistL">主机燃油流量:</span>
-                        <span class="nt_indlistR" id="meFoFlow">-- kg/h</span>
+                        <span class="nt_indlistR" id="meFoFlow">kg/h</span>
+                        <span class="nt_indlistR" id="meFoFlow">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">发电机燃油流量:</span>
-                        <span class="nt_indlistR" id="dgfuelflow">-- kg/h</span>
+                        <span class="nt_indlistR" id="dgfuelflow">kg/h</span>
+                        <span class="nt_indlistR" id="dgfuelflow">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">锅炉燃油流量:</span>
-                        <span class="nt_indlistR" id="foTotalFlow">-- kg/h</span>
+                        <span class="nt_indlistR" id="foTotalFlow">kg/h</span>
+                        <span class="nt_indlistR" id="foTotalFlow">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">主机功率:</span>
-                        <span class="nt_indlistR" id="mePower">-- Kw</span>
+                        <span class="nt_indlistR" id="mePower">Kw</span>
+                        <span class="nt_indlistR" id="mePower">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">NO.1发电机功率:</span>
-                        <span class="nt_indlistR" id="dgpower6">-- Kw</span>
+                        <span class="nt_indlistR" id="dgpower6">Kw</span>
+                        <span class="nt_indlistR" id="dgpower6">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">NO.2发电机功率:</span>
-                        <span class="nt_indlistR" id="dgpower7">-- Kw</span>
+                        <span class="nt_indlistR" id="dgpower7">Kw</span>
+                        <span class="nt_indlistR" id="dgpower7">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">NO.3发电机功率:</span>
-                        <span class="nt_indlistR" id="dgpower8">-- Kw</span>
+                        <span class="nt_indlistR" id="dgpower8">Kw</span>
+                        <span class="nt_indlistR" id="dgpower8">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">艏吃水:</span>
-                        <span class="nt_indlistR" id="fwdDraught">-- m</span>
+                        <span class="nt_indlistR" id="fwdDraught">m</span>
+                        <span class="nt_indlistR" id="fwdDraught">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">艉吃水:</span>
-                        <span class="nt_indlistR" id="aftDraught">-- m</span>
+                        <span class="nt_indlistR" id="aftDraught">m</span>
+                        <span class="nt_indlistR" id="aftDraught">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">左吃水:</span>
-                        <span class="nt_indlistR" id="portDraught">-- m</span>
+                        <span class="nt_indlistR" id="portDraught">m</span>
+                        <span class="nt_indlistR" id="portDraught">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">右吃水:</span>
-                        <span class="nt_indlistR" id="stbdDraught">-- m</span>
+                        <span class="nt_indlistR" id="stbdDraught">m</span>
+                        <span class="nt_indlistR" id="stbdDraught">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">水深:</span>
-                        <span class="nt_indlistR" id="waterDepth">-- m</span>
+                        <span class="nt_indlistR" id="waterDepth">m</span>
+                        <span class="nt_indlistR" id="waterDepth">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">横倾角:</span>
-                        <span class="nt_indlistR" id="heelAngle">--°</span>
+                        <span class="nt_indlistR" id="heelAngle">°</span>
+                        <span class="nt_indlistR" id="heelAngle">--</span>
                     </li>
                     <li>
                         <span class="nt_indlistL">纵倾角:</span>
-                        <span class="nt_indlistR" id="trimAngle">--°</span>
+                        <span class="nt_indlistR" id="trimAngle">°</span>
+                        <span class="nt_indlistR" id="trimAngle">--</span>
                     </li>
                 </ul>
             </div>

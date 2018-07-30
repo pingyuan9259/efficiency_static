@@ -1,10 +1,8 @@
 function interface1001() {	
-
-	var dataID ="Lon";
-	
+	var dataID = "Lon";
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1001",
+		url : "http://localhost:8081/soms/v2/interface1001",
 		data : {
 			dataID:dataID
 		},
@@ -20,14 +18,11 @@ function interface1001() {
 
 function interface1003() {
 	var url = $("#hiddel").val();
-	var paramsets = new Object();
-		paramsets.startTime = "1";
-		paramsets.endTime = "1";
-		paramsets.jsonParams = [
-		{"name":"WindDiration","key":"WindDiration"},
-		{"name":"WindSpeed","key":"WindSpeed"}
-		];
-	
+	var paramsets = [];
+	paramsets.push({"name":"WindDiration","key":"WindDiration"});
+	paramsets.push({"name":"WindDiration1","key":"WindDiration"});
+	paramsets.push({"name":"WindSpeed","key":"WindSpeed"});
+
 	console.log(paramsets);
 	
 	$.ajax({
@@ -41,7 +36,7 @@ function interface1003() {
 		},
 		success : function(data) {
 			alert('receive data success');
-			console.log(data.result.WindDiration);
+			console.log(data.result);
 			
 			$("#windDiration").text(data.result.WindDiration);
 			$("#WindSpeed").text(data.result.WindSpeed);
@@ -54,8 +49,77 @@ function interface1004() {
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1004",
+		url : "http://localhost:8081/soms/v2/interface1004",
 		data : null,
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface0102() {	
+	alert("start");
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface0102",
+		data : null,
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface0161() {	
+	alert("start");
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface0161",
+		data : null,
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface0801() {	
+	alert("start");
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface0801",
+		data : null,
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface0121() {	
+	
+	var paramsets = {};
+	paramsets.startTime = "1520816584";
+	paramsets.endTime = "1521024684";
+	
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface0121",
+		contentType:'application/json',
+		data : JSON.stringify(paramsets),		
 		error : function() {
 			alert('receive data error');
 		},
@@ -73,7 +137,7 @@ function interface1005() {
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1005",
+		url : "http://localhost:8081/soms/v2/interface1005",
 		data : {
 			dataID:dataID,
 			startTime:startTime,
@@ -97,7 +161,7 @@ function interface1006() {
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1006",
+		url : "http://localhost:8081/soms/v2/interface1006",
 		data : {
 			dataID:dataID,
 			startTime:startTime,
@@ -116,20 +180,46 @@ function interface1006() {
 
 function interface1007() {	
 	
-	var dataID ="H00016000";
-	var dataArray = "H00016000,Lat,Lon";
-	var startTime ="1520316584";
-	var endTime ="1520324684";
+	var paramsets = {};
+	paramsets.startTime = "2018-03-06 14:09:44";
+	paramsets.endTime = "2018-03-06 16:24:44";
+	paramsets.jsonParams = [
+	{"name":"H00016000","key":"H00016000"},
+	{"name":"Lat","key":"Lat"},
+	{"name":"Lon","key":"Lon"}
+	];
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1007",
-		data : {
-			dataID:dataID,
-			dataArray:dataArray,
-			startTime:startTime,
-			endTime:endTime,
-		},	
+		url : "http://localhost:8081/soms/v2/interface1007",
+		contentType:'application/json',
+		data : JSON.stringify(paramsets),	
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface1007period() {	
+	
+	var paramsets = {};
+	paramsets.period = "90";
+	
+	paramsets.jsonParams = [
+	{"name":"H00016000","key":"H00016000"},
+	{"name":"Lat","key":"Lat"},
+	{"name":"Lon","key":"Lon"}
+	];
+	
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface1007period",
+		contentType:'application/json',
+		data : JSON.stringify(paramsets),	
 		error : function() {
 			alert('receive data error');
 		},
@@ -142,22 +232,49 @@ function interface1007() {
 
 function interface1009() {	
 	
-	var dataArray = "H00016000,Lat,Lon";
-	var startTime ="1523955000";
-	var endTime ="1523965000";
-	var rpmLow ="0";
-	var rpmHigh ="60";
+	var paramsets = {};
+	paramsets.startTime = "1523955000";
+	paramsets.endTime = "1523965000";
+	paramsets.rpmLow = "0";
+	paramsets.rpmHigh = "60";
+	paramsets.jsonParams = [
+	{"name":"H00016000","key":"H00016000"},
+	{"name":"Lat","key":"Lat"},
+	{"name":"Lon","key":"Lon"}
+	];
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface1009",
-		data : {
-			dataArray:dataArray,
-			startTime:startTime,
-			endTime:endTime,
-			rpmLow:rpmLow,
-			rpmHigh:rpmHigh,
-		},	
+		url : "http://localhost:8081/soms/v2/interface1009",
+		contentType:'application/json',
+		data : JSON.stringify(paramsets),		
+		error : function() {
+			alert('receive data error');
+		},
+		success : function(data) {
+			alert('receive data success');
+			console.log(data);		
+		}
+	});
+}
+
+function interface1021() {	
+	
+	var paramsets = {};
+	paramsets.startTime = "1523955000";
+	paramsets.endTime = "1523965000";
+	paramsets.jsonParams = [
+	{"name":"H00016000","key":"H00016000"},
+	{"name":"Lat","key":"Lat"},
+	{"name":"Lon","key":"Lon"},
+	{"name":"test","key":"test"}
+	];
+	
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8081/soms/v2/interface1021",
+		contentType:'application/json',
+		data : JSON.stringify(paramsets),	
 		error : function() {
 			alert('receive data error');
 		},
@@ -172,7 +289,7 @@ function interface0106() {
 	
 	$.ajax({
 		type : "POST",
-		url : "http://localhost:8080/interface0106",
+		url : "http://localhost:8081/soms/v2/interface0106",
 		data : null,
 		error : function() {
 			alert('receive data error');
@@ -185,10 +302,10 @@ function interface0106() {
 }
 
 function interface0110() {
-	url = $("#test").val();
+//	url = $("#test").val();
 	$.ajax({
 		type : "POST",
-		url : url,
+		url : "http://localhost:8081/soms/v2/interface0110",
 		data : null,
 		error : function() {
 			alert('receive data error');
@@ -203,12 +320,18 @@ function interface0110() {
 
 $(document).ready(function() {
 //	interface1001();
-	interface1003();
-//	interface0106();
-//	interface0110();
+//	interface1003();
 //	interface1004();
 //	interface1005();
 //	interface1006();
 //	interface1007();
+//	interface1007period();
 //	interface1009();
+//	interface1021();
+//	interface0102();
+//	interface0106();
+//	interface0110();
+	interface0121();
+//	interface0161();
+//	interface0801();
 });

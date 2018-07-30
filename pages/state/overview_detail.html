@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="../../resources/css/font.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
-    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_left.css" />
-    <link rel="stylesheet" href="../../resources/css/efficiency/speed/nt_so_right.css" />
     <link rel="stylesheet" href="../../resources/css/stateanalysis/overview/overview.css" />
     <link rel="stylesheet" href="../../resources/css/stateanalysis/overview/overview_detail.css" />
 </head>
@@ -179,7 +177,7 @@
         </ul>
     </section><!-- sub_header end -->
 
-    <div class="sub_contaioner">
+    <div class="sub_container">
         <div class="container_item">
             <p class="container_item_title">船舶燃油效率</p>
             <li>
@@ -213,11 +211,12 @@
         </div>
         <div class="container_item">
             <p class="container_item_title">船舶燃油效率</p>
+            
+            <div class="chart_container">
+                <div id="chartFuelEfficiency" class="chart_body"></div>
             </div>
         </div>
     </div>
-
-    
 </div>
 
 <script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
@@ -228,4 +227,5 @@
 <script type="text/javascript" src="../../resources/js/sysproperties.js"></script>
 <script type="text/javascript" src="../../resources/js/echarts/echarts.min.js"></script>
 <script type="text/javascript" src="../../resources/js/fragments/main_header.js"></script>
+<script type="text/javascript" src="../../resources/js/pages/stateanalysis/overview.js"></script>
 </body>

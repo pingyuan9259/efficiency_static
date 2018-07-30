@@ -12,7 +12,7 @@
 
 .container_item{
     width: 19%;
-    height: 500px;
+    height: calc(100vh - 185px);
     background:rgba(0, 0, 0, 0.25);
     position: relative;
     display: inline-block;
@@ -23,8 +23,8 @@
 .container_item li {
     position: relative;
     display: block;
-    height: 160px;
-    width: 160px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto;
     margin-bottom: 30px;
 }
@@ -90,6 +90,9 @@
 
 .container_item li:last-child{
     margin-top: 10px;
+    height: calc(100vh - 185px - 50px - 200px - 30px - 40px);
+    width: 90%;
+    overflow: auto;
 }
 
 .container_item_item_group{
@@ -102,9 +105,9 @@
 }
 
 .container_item_item_val{
-    font-size: 17px;
+    font-size: 14px;
     text-align:center;
-    margin-top: 3px;
+    margin-top: 7px;
 }
 
 .container_item_button{
