@@ -1,0 +1,204 @@
+/* left */
+.boiler_left{
+    float: left;
+    height: calc(100vh - 190px);
+    min-height: 450px;
+    background:rgba(0, 0, 0, 0.25);
+    width: 17%;
+    margin-left: 1%;
+}
+
+.boiler_left .container_item_title{
+    display: block;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    font-size: 14px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.boiler_left .gauge_container {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    height: calc(100vh - 220px);
+    min-height: 560px;
+}
+
+.boiler_left .gauge_container .gauge_body {
+    position: relative;
+    display: inline-block;
+    height: 180px;
+    width: 180px;
+}
+
+.boiler_left .gauge_container .gauge_body .gauge_panel_bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+.boiler_left .gauge_container .gauge_body .gauge_panel_dot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+}
+
+.boiler_left .gauge_container .gauge_body .gauge_panel_tit {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    font-size: 14px;
+}
+
+.boiler_left .gauge_container .gauge_body .gauge_panel_val {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boiler_left .gauge_container .gauge_body .gauge_panel_unit {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.boiler_left .gauge_container .container_item_button{
+    position: absolute;
+    left: 35px;
+    top: 235px;
+}
+
+.boiler_left .gauge_container .gauge_info {
+    min-width: 250px;
+    line-height: 2;
+    margin-top: 3vh;
+    overflow-y: auto;
+    height: calc(100vh - 460px);
+}
+
+.boiler_left .gauge_container .gauge_info .key {
+    float: left;
+}
+
+.boiler_left .gauge_container .gauge_info .value,
+.boiler_left .gauge_container .gauge_info .unit {
+    float: right;
+}
+
+/* right */
+.boiler_right{
+
+    float: left;
+    margin-left: 1%;
+    width: 80%;
+    height: 700px;
+}
+
+.boiler_right .boiler_right_item{
+    width: calc(33% - 20px);
+    float: left;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+}
+
+.boiler_right_item .right_item_title{
+    display: block;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    font-size: 14px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.boiler_right_item .img {
+    width: 100%;
+    text-align: center;
+}
+
+.boiler_right_item.gas_boiler .img {
+    margin-bottom: 60px;
+}
+
+.boiler_right_item .img img {
+    display: inline-block;
+}
+
+/* info_panel */
+.boiler_right_item .info_panel {
+    width: 100%;
+    margin: 10px 15px 20px 0;
+    height: 80px;
+    overflow-y: auto;
+}
+
+.boiler_right_item .info_panel .info_item {
+    padding: 0 15px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.boiler_right_item .info_panel .info_item .title {
+    float: left;
+}
+
+.boiler_right_item .info_panel .info_item .unit,
+.boiler_right_item .info_panel .info_item .value {
+    float: right;
+    margin-left: 5px;
+}
+
+.boiler_right_item .info_panel .info_item .value {
+    font-size: 15px;
+}
+
+/* fo do */
+.boiler_right_item .desc {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+
+.boiler_right_item .desc .fo {
+    background: #ffb239;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.boiler_right_item .desc .do {
+    background: #ccc;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
