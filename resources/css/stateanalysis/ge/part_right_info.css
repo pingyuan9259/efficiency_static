@@ -1,0 +1,27 @@
+.part_right .info_panel {
+    border: 1px solid #000;
+    width: 23%;
+    margin: 10px 15px 0 0;
+    height: 245px;
+    overflow-y: auto;
+}
+
+.part_right .info_panel .info_item {
+    padding: 0 15px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.part_right .info_panel .info_item .title {
+    float: left;
+}
+
+.part_right .info_panel .info_item .unit,
+.part_right .info_panel .info_item .value {
+    float: right;
+    margin-left: 5px;
+}
+
+.part_right .info_panel .info_item .value {
+    font-size: 15px;
+}

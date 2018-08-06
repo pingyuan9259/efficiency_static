@@ -1,4 +1,4 @@
-/* 鑸硅埗鐘舵�� */
+/* 閼哥鍩楅悩鑸碉拷锟� */
 
 .nt_ind_right {
     position: absolute;
@@ -19,7 +19,7 @@
 }
 
 .nt_indrigtop {
-    height: 300px;
+    height: 450px;
     overflow: hidden;
     clear: both;
     background: rgba(0, 0, 0, 0.25);
@@ -93,7 +93,7 @@
     float: left;
 }
 
-/* 鍙傛暟 */
+/* 閸欏倹鏆� */
 
 .nt_indrigRT2 {
     height: 28px;
@@ -105,7 +105,7 @@
 }
 
 .nt_indlist {
-    height: 450px;
+    height: 300px;
     overflow: hidden;
     clear: both;
     padding: 6px 0;

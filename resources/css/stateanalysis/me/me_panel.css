@@ -13,3 +13,76 @@
     line-height: 30px;
     background: rgba(0, 0, 0, 0.25);
 }
+
+.me_panel .flex_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.me_panel .me_content {
+    background: url(../../../images/me_bg.png) no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 0;
+    padding-bottom: 31.1%;
+    position: relative;
+}
+
+.me_panel .me_content .desc_left span {
+    display: inline-block;
+    transform: scale(0.55);
+    position: absolute;
+    left: -2.8%;
+    width: 20%;
+}
+
+.me_panel .me_content .me_temp .group li {
+    position: absolute;
+    white-space: nowrap;
+    transform: scale(0.5);
+}
+
+.me_panel .me_content .me_temp .group span {
+}
+
+.me_panel .me_content .me_temp .group .value {
+}
+
+.me_panel .me_content .me_temp .group:nth-child(1) { margin-left: 11.5%; }
+.me_panel .me_content .me_temp .group:nth-child(2) { margin-left: 15.6%; }
+.me_panel .me_content .me_temp .group:nth-child(3) { margin-left: 19.7%; }
+.me_panel .me_content .me_temp .group:nth-child(4) { margin-left: 23.8%; }
+.me_panel .me_content .me_temp .group:nth-child(5) { margin-left: 27.9%; }
+.me_panel .me_content .me_temp .group:nth-child(6) { margin-left: 32%; }
+.me_panel .me_content .me_temp .group:nth-child(7) { margin-left: 36.1%; }
+.me_panel .me_content .me_temp .group:nth-child(8) { margin-left: 40.2%; }
+
+.me_panel .me_content .desc_left_1,
+.me_panel .me_content .me_temp_1 { margin-top: 7%; }
+
+.me_panel .me_content .desc_left_2,
+.me_panel .me_content .me_temp_2 { margin-top: 14.2%; }
+
+.me_panel .me_content .desc_left_3,
+.me_panel .me_content .me_temp_3 { margin-top: 15.8%; }
+
+.me_panel .me_content .desc_left_4,
+.me_panel .me_content .me_temp_4 { margin-top: 22.8%; }
+
+.me_panel .me_content .ract {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 15px;
+    line-height: 30px;
+    transform: scale(0.65);
+    position: absolute;
+}
+
+.me_panel .me_content .st_force { right: -3%; margin-top: 5%; }
+.me_panel .me_content .intern { right: 7%; margin-top: 11%; }
+.me_panel .me_content .thrust { right: 13%; margin-top: 20.5%; }
+.me_panel .me_content .st_aft { right: -3%; margin-top: 20%; }
+
+

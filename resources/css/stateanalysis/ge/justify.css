@@ -1,0 +1,36 @@
+@media screen and (max-width: 1600px) {
+    .part_left {
+        position: static;
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    .part_left .gauge_container {
+        height: 260px;
+        min-height: auto;
+    }
+
+    .part_left .gauge_container li {
+        display: flex;
+        align-items: center;
+    }
+
+    .part_left .gauge_container .gauge_info {
+        margin-top: 0;
+        margin-left: 30px;
+    }
+
+    .part_right {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 1690px) {
+    .part_right .ge_panel .title {
+        right: 0;
+        top: 30px;
+    }
+}

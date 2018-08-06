@@ -1,0 +1,81 @@
+.part_left .gauge_container {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+    height: calc(100vh - 220px);
+    min-height: 560px;
+}
+
+.part_left .gauge_container .gauge_body {
+    position: relative;
+    display: inline-block;
+    height: 180px;
+    width: 180px;
+}
+
+.part_left .gauge_container .gauge_body:last-child {
+    margin: 0;
+}
+
+.part_left .gauge_container .gauge_body .gauge_panel_bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
+.part_left .gauge_container .gauge_body .gauge_panel_dot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    width: 100%;
+    height: 100%;
+}
+
+.part_left .gauge_container .gauge_body .gauge_panel_tit {
+    position: absolute;
+    left: 50%;
+    top: 27%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    font-size: 14px;
+}
+
+.part_left .gauge_container .gauge_body .gauge_panel_val {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.part_left .gauge_container .gauge_body .gauge_panel_unit {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    z-index: 101;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+}
+
+.part_left .gauge_container .gauge_info {
+    min-width: 250px;
+    line-height: 1.5;
+    margin-top: 3vh;
+}
+
+.part_left .gauge_container .gauge_info .key {
+    float: left;
+}
+
+.part_left .gauge_container .gauge_info .value,
+.part_left .gauge_container .gauge_info .unit {
+    float: right;
+}

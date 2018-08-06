@@ -12,7 +12,6 @@ $(function(){
             console.log(instance);
             beginTime = dateStr;
         }
-
     });
     var end = $("#endDate").flatpickr({
         defaultDate:getNowFormatDate(),
@@ -123,6 +122,8 @@ $(function(){
 
     //new plan
     $('.add').on('click',function(){
+        $('.new_plan').removeClass('hide');
+        $('.data_record').addClass('hide');
         switch (text){
             case 'shipbunkeringplanfuel':
                 $('.fuel_mc_new_plan').removeClass('hide');
@@ -143,6 +144,7 @@ $(function(){
     });
     $('.new_plan_header img').on('click',function(){
         $('.fuel_mc_new_plan').addClass('hide');
+        inputDel();
     });
     //new plan中的时间控件配置
     //shipbunkeringplanfuel
@@ -156,17 +158,301 @@ $(function(){
     $('#strTimeStart').flatpickr({})//开始时间
     $('#strTimeStop').flatpickr({})//结束时间
     //shipfuelchange
-    $('#strCommenceTime').flatpickr({})//换油开始时间
+    $('#strCommenceTime').flatpickr({//获取经纬度
+        onChange: function(dateObj, dateStr, instance) {
+            $.get(url+'timelatlon',function(data){
+                $('#longitude3').val(data.result.lon);
+                $('#latitude3').val(data.result.lat);
+            })
+        }
+    })//换油开始时间
     $('#strCompleteTime').flatpickr({})//换油结束时间
     $('#strSecaStartDate').flatpickr({})//进入时间
     $('#strSecaEndDate').flatpickr({})//离开时间
+    //查看信息详情
+    //点击首个td
+    $('#result_table1,#result_table2,#result_table3').on('click','.cursor',function(){
+        var id = $(this).attr('attrid');
+        $('.new_plan').addClass('hide');
+        $('.data_record').removeClass('hide');
+        $('.deleteBtn').attr('attrid',id);
+        $.getJSON(url+text+'/'+id,function(data){
+            switch (text){
+                case 'shipbunkeringplanfuel':
+                    $('.shipBunkeringPlanFuel').removeClass('hide');
+                    $('.shipBunkeringFuel,.shipFuelChange').addClass('hide');
 
-    //首条信息点击展开
-    $('.cursor').on('click',function () {
-        console.log($(this).attr('attrid'))
-    })
+                    //开始赋值
+                    $('.shipBunkeringPlanFuel .shipId span').text(data.result.shipInfo.shipId);
+                    $('.shipBunkeringPlanFuel .port span').text(data.result.port);
+                    $('.shipBunkeringPlanFuel .date span').text(timestampToTime2(data.result.date));
+                    $('.shipBunkeringPlanFuel .maximumOilRate span').text(data.result.maximumOilRate);
+                    $('.shipBunkeringPlanFuel .recommendedOilRate span').text(data.result.recommendedOilRate);
+                    $('.shipBunkeringPlanFuel .actualOilRate span').text(data.result.actualOilRate);
+                    $('.shipBunkeringPlanFuel .variety span').text(data.result.variety);
+                    $('.shipBunkeringPlanFuel .beginTime span').text(timestampToTime2(data.result.beginTime));
+                    $('.shipBunkeringPlanFuel .oilSupplier span').text(data.result.oilSupplier);
+                    $('.shipBunkeringPlanFuel .numberOfOilLoaded span').text(data.result.numberOfOilLoaded);
+                    $('.shipBunkeringPlanFuel .endTime span').text(timestampToTime2(data.result.endTime));
+                    //油罐先空着
+                    $('.shipBunkeringPlanFuel .draftBeforeRefuellingBow span').text(data.result.draftBeforeRefuellingBow);
+                    $('.shipBunkeringPlanFuel .refuelingEndDraftBow span').text(data.result.refuelingEndDraftBow);
+                    $('.shipBunkeringPlanFuel .draftBeforeRefuellingStern span').text(data.result.draftBeforeRefuellingStern);
+                    $('.shipBunkeringPlanFuel .refuelingEndDraftStern span').text(data.result.refuelingEndDraftStern);
+                    $('.shipBunkeringPlanFuel .safetyInstructions span').text(data.result.safetyInstructions);
+                    $('.shipBunkeringPlanFuel .oilPersonnel span').text(data.result.oilPersonnel);
+                    $('.shipBunkeringPlanFuel .operate span').text(data.result.operate);
+                    $('.shipBunkeringPlanFuel .deck span').text(data.result.deck);
+
+                    var list = [];
+                    data.result.shipBunkeringPlanFuelDetails.map(function(obj,index){
+                        list.push('<tr><td>'+(index+1)+'</td><td>'+obj.oilTank.oilTankNumber+'</td><td>'+obj.oilTank.capacity+'</td>' +
+                            '<td>'+(obj.oilTank.capacity)*9/10+'</td><td>'+obj.existingCapacityNumber+'</td><td>'+parseInt((obj.existingCapacityNumber/obj.oilTank.capacity)*100)+'</td>' +
+                            '<td>'+obj.preloadedOilNumber+'</td><td>'+parseInt((obj.preloadedOilNumber/obj.oilTank.capacity)*100)+'</td><td>'+obj.preloadedOilLevel+'</td>' +
+                            '<td>'+obj.actualLoadOilNumber+'</td><td>'+parseInt((obj.actualLoadOilNumber/obj.oilTank.capacity)*100)+'</td><td>'+obj.actualLoadOilLevel+'</td></tr>')
+                    });
+                    //加油顺序list
+                    $('#shipDetails').next('tbody').html(list);
+                    break;
+                case 'shipbunkeringfuel':
+                    $('.shipBunkeringFuel').removeClass('hide');
+                    $('.shipFuelChange,.shipBunkeringPlanFuel').addClass('hide');
+
+                    //开始赋值
+                    $('.shipBunkeringFuel .port span').text(data.result.portName);
+                    $('.shipBunkeringFuel .strDate span').text(data.result.strDate);
+                    $('.shipBunkeringFuel .supplyCompany span').text(data.result.supplyCompany);
+                    $('.shipBunkeringFuel .strTimeAlongside span').text(data.result.strTimeAlongside);
+                    $('.shipBunkeringFuel .bargeName span').text(data.result.bargeName);
+                    $('.shipBunkeringFuel .strTimeCompleted span').text(data.result.strTimeCompleted);
+                    $('.shipBunkeringFuel .product span').text(data.result.product);
+                    $('.shipBunkeringFuel .strTimeStart span').text(data.result.strTimeStart);
+                    $('.shipBunkeringFuel .quantity span').text(data.result.quantity);
+                    $('.shipBunkeringFuel .strTimeStop span').text(data.result.strTimeStop);
+                    $('.shipBunkeringFuel .deck span').text(data.result.deck);
+                    $('.shipBunkeringFuel .engine span').text(data.result.engine);
+                    break;
+                case 'shipfuelchange':
+                    $('.shipFuelChange').removeClass('hide');
+                    $('.shipBunkeringPlanFuel,.shipBunkeringFuel').addClass('hide');
+
+                    //开始赋值
+                    $('.shipFuelChange .equipment span').text(data.result.equipment);
+                    $('.shipFuelChange .switchingMode span').text(data.result.switchingMode);
+                    $('.shipFuelChange .strCommenceTime span').text(data.result.strCommenceTime);
+                    $('.shipFuelChange .strCompleteTime span').text(data.result.strCompleteTime);
+                    $('.shipFuelChange .longitude span').text(data.result.longitude);
+                    $('.shipFuelChange .latitude span').text(data.result.latitude);
+                    $('.shipFuelChange .speed span').text(data.result.speed);
+                    $('.shipFuelChange .fuelConsumedEndOfChangeover span').text(data.result.fuelConsumedEndOfChangeover==null?"":data.result.fuelConsumedEndOfChangeover);
+                    $('.shipFuelChange .sulphurContent span').text(data.result.sulphurContent==null?"":data.result.sulphurContent);
+                    $('.shipFuelChange .bunkerTankEndOfChangeover span').text(data.result.bunkerTankEndOfChangeover==null?"":data.result.bunkerTankEndOfChangeover);
+                    $('.shipFuelChange .tankNo span').text(data.result.tankNo==null?"":data.result.tankNo);
+                    $('.shipFuelChange .strSecaStartDate span').text(data.result.strSecaStartDate);
+                    $('.shipFuelChange .signature span').text(data.result.signature);
+                    $('.shipFuelChange .strSecaEndDate span').text(data.result.strSecaEndDate);
+                    break;
+            }
+        });
+        $('.fuel_mc_new_plan').removeClass('hide');
+    });
+    //三删除数据
+    $('.data_record .deleteBtn').on('click',function(){{
+        var id = $(this).attr('attrid');
+        $.getJSON(url+text+"/del/"+id,function(data){
+            if(data.state){
+                $('.fuel_mc_new_plan').addClass('hide');
+                getData(url,text,page,size,beginTime,endTime);
+            }
+        })
+    }});
+    //new plan 加油计划添加规则
+    var rules={ //配置验证规则，key就是被验证的dom对象，value就是调用验证的方法(也是json格式)
+        port:{required:true},
+        strDate:{required:true},
+        maximumOilRate:{required:true,number:true},
+        recommendedOilRate:{required:true,number:true},
+        actualOilRate:{required:true,number:true},
+        variety:{required:true},
+        strBeginTime:{required:true},
+        oilSupplier:{required:true},
+        numberOfOilLoaded:{required:true,number:true},
+        strEndTime:{required:true},
+        tanker:{required:true},
+        draftBeforeRefuellingBow:{ required:true},
+        refuelingEndDraftBow:{required:true},
+        draftBeforeRefuellingStern:{required:true},
+        refuelingEndDraftStern:{required:true},
+        safetyInstructions:{required:true},
+        oilPersonnel:{required:true},
+        operate:{required:true},
+        deck:{required:true}
+    };
+    for(var i=0;i<$("#datalength").val();i++){
+        rules["shipBunkeringPlanFuelDetails["+i+"].existingCapacityNumber"] = {required:true,number:true};
+        rules["shipBunkeringPlanFuelDetails["+i+"].preloadedOilNumber"] = {required:true,number:true};
+        rules["shipBunkeringPlanFuelDetails["+i+"].preloadedOilLevel"] = {required:true,number:true};
+        rules["shipBunkeringPlanFuelDetails["+i+"].actualLoadOilNumber"] = {required:true,number:true};
+        rules["shipBunkeringPlanFuelDetails["+i+"].actualLoadOilLevel"] = {required:true,number:true};
+    }
+    $("#shipBunkeringPlanFuel").validate({rules:rules}).form();
+    $(".saveBunkeringplanfuelBtn").unbind("click").bind("click",function(){
+        if($("#shipBunkeringPlanFuel").validate({rules:rules}).form()){
+            if($("#port1").val()==""){
+                alert("请选择港口!");
+                return ;
+            }
+            $.ajax( {
+                type : "POST",
+                url : url+"shipbunkeringplanfuel/save",
+                data : $("#shipBunkeringPlanFuel").serialize(),
+                success : function(data) {
+                    if(data.state){
+                        alert("保存成功!");
+                        $('.fuel_mc_new_plan').addClass('hide');
+                        inputDel();
+                        getData(url,text,page,size,beginTime,endTime);
+                    }
+                }
+            });
+        }
+
+    });
+    /**
+     * 加油计划 港口模糊搜索
+     */
+    $("#portName1").autocomplete({
+        source:function(request,response) {
+            $.get(url+"port?q="+$.trim(request.term),function(data){
+                if(data.state){
+                    response($.map(data.result, function(item){ // 此处是将返回数据转换为 JSON对象，并给每个下拉项补充对应参数
+                        return {                                 // 设置item信息
+                            label: item.namecn +" "+item.name, // 下拉项显示内容
+                            value: item.namecn +" "+item.name,
+                            id: item.id
+                        }
+                    }));
+                }
+            });
+        },
+        minLength: 2,  // 输入框字符个等于2时开始查询
+        scrollHeight : 300, //提示的高度，溢出显示滚动条
+        select: function( event, ui ) { // 选中某项时执行的操作
+            $("#port1").val(ui.item.id, '--');
+        }
+    });
+    //new plan 加油记录规则
+    var ruless={ //配置验证规则，key就是被验证的dom对象，value就是调用验证的方法(也是json格式)
+        port:{required:true},
+        strDate:{required:true},
+        supplyCompany:{required:true},
+        strTimeAlongside:{required:true},
+        bargeName:{required:true},
+        strTimeCompleted:{required:true},
+        product:{required:true},
+        strTimeStart:{required:true},
+        quantity:{required:true,number:true},
+        strTimeStop:{required:true},
+        remarks:{required:true},
+        deck:{required:true},
+        engine:{required:true}
+    }
+    $("#shipBunkeringFuel").validate({rules:ruless}).form();
+    $(".saveBunkeringfuelBtn").unbind("click").bind("click",function(){
+        if($("#shipBunkeringFuel").validate({rules:ruless}).form()){
+            if($("#port2").val()==""){
+                alert("请选择港口!");
+                return ;
+            }
+            $.ajax( {
+                type : "POST",
+                url : url+"shipbunkeringfuel/save",
+                data : $("#shipBunkeringFuel").serialize(),
+                success : function(data) {
+                    if(data.state){
+                        alert("保存成功!");
+                        $('.fuel_mc_new_plan').addClass('hide');
+                        inputDel();
+                        getData(url,text,page,size,beginTime,endTime);
+                    }
+                }
+            });
+        }
+
+    });
+    /**
+     * 燃料加注记录 港口模糊搜索
+     */
+    $("#portName2").autocomplete({
+        source:function(request,response) {
+            $.get(url+"port?q="+$.trim(request.term),function(data){
+                if(data.state){
+                    response($.map(data.result, function(item){ // 此处是将返回数据转换为 JSON对象，并给每个下拉项补充对应参数
+                        return {                                 // 设置item信息
+                            label: item.namecn +" "+item.name, // 下拉项显示内容
+                            value: item.namecn +" "+item.name,
+                            id: item.id
+                        }
+                    }));
+                }
+            });
+        },
+        minLength: 2,  // 输入框字符个等于2时开始查询
+        scrollHeight : 300, //提示的高度，溢出显示滚动条
+        select: function( event, ui ) { // 选中某项时执行的操作
+            $("#port2").val(ui.item.id, '--');
+        }
+    });
+    //换油记录
+    var rulesss={
+        strCommenceTime:{required:true},
+        strCompleteTime:{required:true},
+        sulphurContent:{required:true},
+        bunkerTankEndOfChangeover:{required:true},
+        fuelConsumedEndOfChangeover:{required:true},
+        tankNo:{required:true},
+        strSecaStartDate:{required:true},
+        signature:{required:true},
+        strSecaEndDate:{required:true}
+    };
+    $("#shipFuelChange").validate({rules:rulesss}).form();
+    $(".saveFuelchangeBtn").unbind("click").bind("click",function(){
+        if($("#shipFuelChange").validate({rules:rulesss}).form()){
+            $.ajax( {
+                type : "POST",
+                url : url+"shipfuelchange/save",
+                data : $("#shipFuelChange").serialize(),
+                success : function(data) {
+                    if(data.state){
+                        alert("保存成功!");
+                        $('.fuel_mc_new_plan').addClass('hide');
+                        inputDel();
+                        getData(url,text,page,size,beginTime,endTime);
+                    }
+                }
+            });
+        }
+
+    });
+    /*
+    $("#strSwitchingTime3").unbind("blur").bind("blur",function(){
+        var time=$("#strSwitchingTime3").val();
+        if(time!=""){
+            $.post(url+"shipvoyageswitchtimestate",{time:time},function(data){
+                if(data.state){
+                    $("#longitude3").val(tool.defaultString(data.result.lon, '--'));
+                    $("#latitude3").val(tool.defaultString(data.result.lat, '--'));
+                    $("#speed3").val(tool.defaultString(data.result.speed, '--'));
+                }
+            });
+        }
+    });
+    */
 });
-
+function inputDel(){
+    $('.new_plan input').val('');
+    $('.new_plan input.saveBunkeringplanfuelBtn,.new_plan input.saveBunkeringfuelBtn,.new_plan input.saveFuelchangeBtn').val('保存');
+}
 //分块请求数据
 function getData(url,text,page,size,beginTime,endTime) {
     switch (text){
@@ -254,29 +540,6 @@ function getJson(url,text,page,size,beginTime,endTime){
             }
             //分页
             paging(data.result.number,data.result.totalPages);
-            //点击首个td
-            $('.cursor').on('click',function(){
-                var id = $(this).attr('attrid');
-                $.getJSON(url+text+'/'+id,function(data){
-                    console.log(data)
-                });
-                $('.fuel_mc_new_plan').removeClass('hide');
-                switch (text){
-                    case 'shipbunkeringplanfuel':
-                        $('#shipBunkeringPlanFuel').removeClass('hide');
-                        $('#shipFuelChange,#shipBunkeringFuel').addClass('hide');
-                        break;
-                    case 'shipbunkeringfuel':
-                        $('#shipBunkeringFuel').removeClass('hide');
-                        $('#shipFuelChange,#shipBunkeringPlanFuel').addClass('hide');
-                        break;
-                    case 'shipfuelchange':
-                        $('#shipFuelChange').removeClass('hide');
-                        $('#shipBunkeringPlanFuel,#shipBunkeringFuel').addClass('hide');
-                        break;
-                }
-
-            })
         }
     });
 }
@@ -331,6 +594,17 @@ function timestampToTime(timestamp) {
     m = date.getMinutes() + ':';
     s = date.getSeconds();
     return Y+M+D;
+}
+//时间戳转换
+function timestampToTime2(timestamp) {
+    var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes() + ':';
+    s = date.getSeconds();
+    return Y+M+D+" "+h+m+s;
 }
 //清除绘制的海图
 function clearMap(){

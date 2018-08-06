@@ -166,7 +166,7 @@
 
 </section><!-- main_header end -->
 <section class="fuel_mc_new_plan hide">
-    <section class="new_plan">
+    <section class="new_plan hide">
         <div class="new_plan_header">new plan<img src="../../resources/images/icon_close.png"/></div>
         <!--shipbunkeringplanfuel-->
         <form id="shipBunkeringPlanFuel" action="/eca/fuel" method="post" novalidate="novalidate"><input id="bunkeringPlanFuelid" name="id" type="hidden" value=""><input id="port1" name="port" type="hidden" value=""><input id="datalength" type="hidden" value="2">
@@ -415,132 +415,195 @@
     </section>
     <section class="data_record hide">
         <div class="new_plan_header"><img src="../../resources/images/icon_close.png"/></div>
-        <div class="hipBunkeringPlanFuel">
+        <div class="shipBunkeringPlanFuel hide">
             <div class="nt_tab">
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                     <tr>
                         <th>船舶</th>
-                        <td class="shipId"></td>
+                        <td class="shipId"><span></span></td>
                         <th>港口</th>
-                        <td class="port"></td>
+                        <td class="port"><span></span></td>
                         <th>Date</th>
-                        <td class="date"></td>
+                        <td class="date"><span></span></td>
                     </tr>
                     <tr>
-                        <th>最大加油量</th>
-                        <td class="maximumOilRate">T/H</td>
-                        <th>推荐加油量</th>
-                        <td class="recommendedOilRate">T/H</td>
-                        <th>实际加油量</th>
-                        <td class="actualOilRate"></td>
+                        <th>最大加油率</th>
+                        <td class="maximumOilRate"><span></span>T/H</td>
+                        <th>推荐加油率</th>
+                        <td class="recommendedOilRate"><span></span>T/H</td>
+                        <th>实际加油率</th>
+                        <td class="actualOilRate"><span></span>T/H</td>
                     </tr>
                     <tr>
                         <th>油品</th>
-                        <td class="variety"></td>
+                        <td class="variety"><span></span></td>
                         <th>开始时间</th>
-                        <td class="beginTime"></td>
+                        <td class="beginTime"><span></span></td>
                         <th>供应商</th>
-                        <td class="oilSupplier"></td>
+                        <td class="oilSupplier"><span></span></td>
                     </tr>
                     <tr>
                         <th>加油量</th>
-                        <td class="numberOfOilLoaded">MT</td>
+                        <td class="numberOfOilLoaded"><span></span>MT</td>
                         <th>结束时间</th>
-                        <td class="endTime"></td>
+                        <td class="endTime"><span></span></td>
                         <th>油罐</th>
-                        <td class="tanker"></td>
+                        <td class="tanker"><span></span></td>
                     </tr>
                     <tr>
                         <th rowspan="2" >拟定加油剩余存量<br>（M）</th>
-                        <td class="draftBeforeRefuellingBow">Bow:&nbsp;&nbsp;&nbsp;</td>
+                        <td class="draftBeforeRefuellingBow">Bow:&nbsp;&nbsp;&nbsp;<span></span></td>
                         <th rowspan="2">
                             拟订加油后存量<br>（M）
                         </th>
-                        <td>Bow:&nbsp;&nbsp;&nbsp;</td>
+                        <td class="refuelingEndDraftBow">Bow:&nbsp;&nbsp;&nbsp;<span></span></td>
                         <td colspan="2" rowspan="2">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="draftBeforeRefuellingStern">Stern:&nbsp;&nbsp;&nbsp;</td>
-                        <td>Stern:&nbsp;&nbsp;&nbsp;</td>
+                        <td class="draftBeforeRefuellingStern">Stern:&nbsp;&nbsp;&nbsp;<span></span></td>
+                        <td class="refuelingEndDraftStern">Stern:&nbsp;&nbsp;&nbsp;<span></span></td>
                     </tr>
                     </tbody></table>
             </div>
             <div class="nt_tab">
                 <table cellpadding="0" cellspacing="0">
+                    <tbody id="shipDetails">
+                        <tr>
+                            <th rowspan="2">加油顺序</th>
+                            <th rowspan="2">油罐编号</th>
+                            <th colspan="2">油罐容量<br>（M  ）</th>
+                            <th colspan="2">存量<br>（M  ）</th>
+                            <th colspan="3">计划加油量<br>（M  ）</th>
+                            <th colspan="3">实际加油量<br>（M  ）</th>
+                        </tr>
+                        <tr>
+                            <th>100%</th>
+                            <th>90%</th>
+                            <th>数量</th>
+                            <th>%</th>
+                            <th>数量</th>
+                            <th>%</th>
+                            <th>预计油位</th>
+                            <th>数量</th>
+                            <th>%</th>
+                            <th>实际油位</th>
+                        </tr>
+                    </tbody>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="nx_diatc_tab1_word">
+                <p class="safetyInstructions">安全措施和说明:&nbsp;&nbsp;&nbsp;&nbsp;<span></span></p>
+                <p class="oilPersonnel">主管:&nbsp;&nbsp;&nbsp;&nbsp;<span></span></p>
+                <p class="operate">操作员:&nbsp;&nbsp;&nbsp;&nbsp;<span></span></p>
+                <p class="deck">甲板巡视: &nbsp;&nbsp;&nbsp;&nbsp;<span></span></p>
+            </div>
+        </div>
+        <div class="shipBunkeringFuel hide">
+            <div class="nt_tab">
+                <table cellpadding="0" cellspacing="0">
                     <tbody><tr>
-                        <th rowspan="2">加油顺序</th>
-                        <th rowspan="2">油罐编号</th>
-                        <th colspan="2">油罐容量<br>（M  ）</th>
-                        <th colspan="2">存量<br>（M  ）</th>
-                        <th colspan="3">计划加油量<br>（M  ）</th>
-                        <th colspan="3">实际加油量<br>（M  ）</th>
+                        <th>加油港口</th>
+                        <td class="port"><span></span></td>
+                        <th>日期</th>
+                        <td class="strDate"><span></span></td>
                     </tr>
                     <tr>
-                        <th>100%</th>
-                        <th>90%</th>
+                        <th>油料供给商</th>
+                        <td class="supplyCompany"><span></span></td>
+                        <th>停靠时间</th>
+                        <td class="strTimeAlongside"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>加油船名称</th>
+                        <td class="bargeName"><span></span></td>
+                        <th>完成时间</th>
+                        <td class="strTimeCompleted"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>油品</th>
+                        <td class="product"><span></span></td>
+                        <th>开始时间</th>
+                        <td class="strTimeStart"><span></span></td>
+                    </tr>
+                    <tr>
                         <th>数量</th>
-                        <th>%</th>
-                        <th>数量</th>
-                        <th>%</th>
-                        <th>预计油位</th>
-                        <th>数量</th>
-                        <th>%</th>
-                        <th>实际油位</th>
+                        <td class="quantity"><span></span>t</td>
+                        <th>结束时间</th>
+                        <td class="strTimeStop"><span></span></td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td></td>
-                        <td></td>
-                        <td>990.89</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td colspan="4"></td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td></td>
-                        <td></td>
-                        <td>1080.89</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>合计</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
+                        <th>值班</th>
+                        <td colspan="3">
+                            <p class="deck">甲板：<span></span></p>
+                            <p class="engine">引擎：<span></span></p>
+                        </td>
                     </tr>
                     </tbody></table>
             </div>
-            <div class="nx_diatc_tab1_word">
-                <p>安全措施和说明:&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p>主管:&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p>操作员:&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p>甲板巡视: &nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </div>
+        <div class="shipFuelChange hide">
+            <div class="nt_tab">
+                <table cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <th>设备</th>
+                        <td class="equipment"><span></span></td>
+                        <th>交换模式</th>
+                        <td class="switchingMode"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>换油开始时间</th>
+                        <td class="strCommenceTime"><span></span></td>
+                        <th>换油结束时间</th>
+                        <td class="strCompleteTime"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>经度</th>
+                        <td class="longitude"><span></span></td>
+                        <th>纬度</th>
+                        <td class="latitude"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>速度</th>
+                        <td class="speed"><span></span></td>
+                        <th>消耗LSHFO质量</th>
+                        <td class="fuelConsumedEndOfChangeover"><span></span>MT</td>
+                    </tr>
+                    <tr>
+                        <th>硫含量</th>
+                        <td class="sulphurContent"><span></span>% m/m</td>
+                        <th>结束时LSHFO质量</th>
+                        <td class="bunkerTankEndOfChangeover"><span></span>MT</td>
+                    </tr>
+                    <tr>
+                        <th>LSHFO燃油舱编号</th>
+                        <td class="tankNo"><span></span></td>
+                        <th>进入SECA时间</th>
+                        <td class="strSecaStartDate"><span></span></td>
+                    </tr>
+                    <tr>
+                        <th>主管工程师签字</th>
+                        <td class="signature"><span></span></td>
+                        <th>离开SECA时间</th>
+                        <td class="strSecaEndDate"><span></span></td>
+                    </tr>
+                    </tbody></table>
             </div>
         </div>
-        <div class="nt_tab shipBunkeringFuel"></div>
-        <div class="nt_tab shipFuelChange"></div>
+        <div class="nx_diabottom">
+            <div class="nt_cstopdate" style="background: none;float:right;">
+                <!--
+                <span><input type="button" class="nt_cstopdate_put saveFuelchangeBtn" value="保存"></span>
+                -->
+                <span><input type="button" class="nt_cstopdate_put deleteBtn" value="删除"></span>
+            </div>
+        </div>
     </section>
 </section>
 <section class="container">
@@ -583,15 +646,7 @@
                 </tr>
             </tbody>
             <tbody id="result_table1">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
             </tbody>
         </table>
     </section>
@@ -805,10 +860,12 @@
 						</div></div></div>
 						-->
 <script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jqueryui/jquery-ui.js"></script>
 <script type="text/javascript" src="../../resources/js/flatpickr.js"></script>
 <script type="text/javascript" src="../../resources/js/flatpickr_zh.js"></script>
 <script type="text/javascript" src="../../resources/js/tool.js"></script>
 <link href="../../resources/css/ol/ol.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../resources/js/validate/jquery.validate.js"></script>
 <script type="text/javascript" src="../../resources/js/ol/ol.js" charset="utf-8"></script>
 <script type="text/javascript" src="../../resources/js/pages/decisionsupport/fuelmanagement.js"></script>
 </body>

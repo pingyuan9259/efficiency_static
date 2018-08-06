@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../resources/css/font.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/main_header.css" />
     <link rel="stylesheet" href="../../resources/css/fragments/sub_header.css" />
+    <link rel="stylesheet" href="../../resources/css/flatpickr.css">
     <link rel="stylesheet" href="../../resources/css/decisionsupport/mrv/mrv.css" />
 </head>
 
@@ -167,7 +168,7 @@
 <section class="mrv_mc_new_plan hide">
     <section class="new_plan">
         <div class="new_plan_header">new plan<img src="../../resources/images/icon_close.png"/></div>
-        <form id="shipVoyageEfficiencyStats" class="nt_tab" action="/eca/mrv" method="post" novalidate="novalidate">
+        <form id="shipVoyageEfficiencyStats" name="shipVoyageEfficiencyStats" class="nt_tab" action="/eca/mrv" method="post" novalidate="novalidate">
             <input id="voyageEfficiencyStatsid" name="id" type="hidden" value="">
             <input id="portOfDeparture" name="portOfDeparture" type="hidden" value="">
             <input id="portOfArrival" name="portOfArrival" type="hidden" value="">
@@ -183,9 +184,9 @@
             </tr>
             <tr>
                 <th>驶离时间</th>
-                <td><input id="strDateOfDepature" name="strDateOfDepature" class="nt_tabput" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" style="width:180px" type="text" value=""></td>
+                <td><input id="strDateOfDepature" name="strDateOfDepature" class="nt_tabput flatpickr" data-enable-time=true data-time_24hr=true data-enable-seconds=true style="width:180px" type="text" value=""></td>
                 <th>到达时间</th>
-                <td><input id="strDateOfArrival" name="strDateOfArrival" class="nt_tabput" onclick="WdatePicker({startDate:'%y-%M-01 00:00:00',dateFmt:'yyyy-MM-dd HH:mm:ss',alwaysUseStartDate:true})" style="width:180px" type="text" value=""></td>
+                <td><input id="strDateOfArrival" name="strDateOfArrival" class="nt_tabput flatpickr" data-enable-time=true data-time_24hr=true data-enable-seconds=true style="width:180px" type="text" value=""></td>
                 <th>航行距离</th>
                 <td><input id="distanceTravelled" name="distanceTravelled" class="nt_tabput" type="text" value=""></td>
             </tr>
@@ -239,6 +240,79 @@
             </div>
         </div>
     </section>
+    <section class="td_details hide">
+        <div class="new_plan_header">new plan<img src="../../resources/images/icon_close.png"/></div>
+        <div class="nt_tab">
+            <table cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <th>航行任务 No.</th>
+                    <td class="voyageNo"><span></span></td>
+                    <th>驶离港口</th>
+                    <td class="portNameOfDeparture"><span></span></td>
+                    <th>到达港口</th>
+                    <td class="portNameOfArrival"><span></span></td>
+                </tr>
+                <tr>
+                    <th>驶离时间</th>
+                    <td class="strDateOfDepature"><span></span></td>
+                    <th>到达时间</th>
+                    <td class="strDateOfArrival"><span></span></td>
+                    <th>航行距离</th>
+                    <td class="distanceTravelled"><span></span></td>
+                </tr>
+                <tr>
+                    <th>海上时间</th>
+                    <td class="timeAtsea"><span></span>h</td>
+                    <th>货物</th>
+                    <td class="cargo"><span></span></td>
+                    <th>存储燃油</th>
+                    <td class="storageHfo"><span></span></td>
+                </tr>
+                <tr>
+                    <th>存储柴油</th>
+                    <td class="storageFo"><span></span></td>
+                    <th>消耗燃油</th>
+                    <td class="consumptionHfo"><span></span></td>
+                    <th>消耗柴油</th>
+                    <td class="consumptionFo"><span></span></td>
+                </tr>
+                <tr>
+                    <th>补充燃油</th>
+                    <td class="bunkeringHfo"><span></span></td>
+                    <th>补充柴油</th>
+                    <td class="bunkeringFo"><span></span></td>
+                    <th>CO<sub>2</sub>排放</th>
+                    <td class="co2emittedTotal"><span></span></td>
+                </tr>
+                <tr>
+                    <th>
+                        CO<sub>2</sub>排放<br>CO<sub>2</sub>航行排放</th>
+                    <td class="co2emittedVoyages"><span></span></td>
+                    <th>
+                        CO<sub>2</sub>排放<br>CO<sub>2</sub>离港排放</th>
+                    <td class="co2emittedDeparted"><span></span></td>
+                    <th>
+                        CO<sub>2</sub>排放<br>CO<sub>2</sub>到港排放</th>
+                    <td class="co2emittedToports"><span></span></td>
+                </tr>
+                <tr>
+                    <th>
+                        CO<sub>2</sub>排放<br>CO<sub>2</sub>在港排放</th>
+                    <td class="co2emittedWithinports"><span></span></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="nx_diabottom">
+                <div class="nt_cstopdate" style="background: none;float:right;">
+                    <!--
+                    <span><input type="button" class="nt_cstopdate_put saveVoyageEfficiencyStatsBtn" value="保存"></span>
+                    -->
+                    <span><input type="button" class="nt_cstopdate_put deleteBtn" value="删除"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>
 <div class="container">
     <!-- sub_header start -->
@@ -260,8 +334,9 @@
         </div>
         <div class="years_choice">
             <div class="years">
-                <p class="years_P"><span class="text">2017</span><span class="right_black"><span></span><span></span><span></span></span></p>
+                <p class="years_P"><span class="text">2018</span><span class="right_black"><span></span><span></span><span></span></span></p>
                 <ul class="hide">
+                    <li yearNum="2017">2018</li>
                     <li yearNum="2017">2017</li>
                     <li yearNum="2016">2016</li>
                     <li yearNum="2015">2015</li>
@@ -385,5 +460,11 @@
     </section>
 </div>
 <script type="text/javascript" src="../../resources/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../../resources/js/jqueryui/jquery-ui.js"></script>
+<script type="text/javascript" src="../../resources/js/tool.js"></script>
+<script type="text/javascript" src="../../resources/js/flatpickr.js"></script>
+<script type="text/javascript" src="../../resources/js/flatpickr_zh.js"></script>
+<script type="text/javascript" src="../../resources/js/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../../resources/js/validate/localization/messages_zh.js"></script>
 <script type="text/javascript" src="../../resources/js/pages/decisionsupport/mrv.js"></script>
 </body>

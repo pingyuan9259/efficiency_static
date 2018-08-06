@@ -1,0 +1,60 @@
+.part_right .ge_panel {
+    width: 35%;
+    position: relative;
+}
+
+.part_right .ge_panel img {
+    width: 450px;
+    height: 230px;
+}
+
+.part_right .ge_panel .title {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: scale(0.75);
+    color: #999;
+}
+
+.part_right .ge_panel .ge_list {
+    position: absolute;
+    left: 85px;
+    top: 108px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.part_right .ge_panel .ge_list_item {
+    text-align: center;
+    width: 37.5px;
+    line-height: 1;
+}
+
+.part_right .ge_panel .ge_list_item span {
+    display: block;
+    transform: scale(0.6);
+}
+
+.part_right .ge_panel .desc {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+    margin-left: 20%;
+}
+
+.part_right .ge_panel .fo {
+    background: #ffb239;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
+
+.part_right .ge_panel .do {
+    background: #ccc;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+}
